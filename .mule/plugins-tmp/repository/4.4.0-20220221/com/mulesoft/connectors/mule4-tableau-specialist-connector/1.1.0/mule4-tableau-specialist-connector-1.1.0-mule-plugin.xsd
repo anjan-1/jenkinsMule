@@ -1,0 +1,1829 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:mule="http://www.mulesoft.org/schema/mule/core" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.mulesoft.org/schema/mule/tableau-specialist" attributeFormDefault="unqualified" elementFormDefault="qualified">
+  <xs:import namespace="http://www.w3.org/XML/1998/namespace"></xs:import>
+  <xs:import namespace="http://www.springframework.org/schema/beans" schemaLocation="http://www.springframework.org/schema/beans/spring-beans.xsd"></xs:import>
+  <xs:import namespace="http://www.mulesoft.org/schema/mule/core" schemaLocation="http://www.mulesoft.org/schema/mule/core/current/mule.xsd"></xs:import>
+  <xs:import namespace="http://www.mulesoft.org/schema/mule/tls" schemaLocation="http://www.mulesoft.org/schema/mule/tls/current/mule-tls.xsd"></xs:import>
+  <xs:complexType name="com.mulesoft.connector.tableau.api.param.PublishWorkbookRequestOption">
+    <xs:complexContent>
+      <xs:extension xmlns:mule="http://www.mulesoft.org/schema/mule/core" base="mule:abstractExtensionType"></xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element xmlns:tableau-specialist="http://www.mulesoft.org/schema/mule/tableau-specialist" xmlns:mule="http://www.mulesoft.org/schema/mule/core" type="tableau-specialist:com.mulesoft.connector.tableau.api.param.PublishWorkbookRequestOption" substitutionGroup="mule:abstract-shared-extension" abstract="true" name="global-abstract-publish-workbook-request-option"></xs:element>
+  <xs:element xmlns:tableau-specialist="http://www.mulesoft.org/schema/mule/tableau-specialist" type="tableau-specialist:com.mulesoft.connector.tableau.api.param.PublishWorkbookRequestOption" abstract="true" name="abstract-publish-workbook-request-option"></xs:element>
+  <xs:complexType name="com.mulesoft.connector.tableau.api.param.PublishWorkbookRequestBody">
+    <xs:complexContent>
+      <xs:extension xmlns:tableau-specialist="http://www.mulesoft.org/schema/mule/tableau-specialist" base="tableau-specialist:com.mulesoft.connector.tableau.api.param.PublishWorkbookRequestOption">
+        <xs:attribute type="xs:string" use="optional" name="workbookFileContent"></xs:attribute>
+        <xs:attribute type="xs:string" use="optional" default="#[payload]" name="workbookAttributes"></xs:attribute>
+        <xs:attribute xmlns:mule="http://www.mulesoft.org/schema/mule/core" type="mule:expressionString" use="optional" name="workbookFileName"></xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element xmlns:tableau-specialist="http://www.mulesoft.org/schema/mule/tableau-specialist" type="tableau-specialist:com.mulesoft.connector.tableau.api.param.PublishWorkbookRequestBody" substitutionGroup="tableau-specialist:abstract-publish-workbook-request-option" abstract="true" name="abstract-publish-workbook-request-body"></xs:element>
+  <xs:element xmlns:tableau-specialist="http://www.mulesoft.org/schema/mule/tableau-specialist" substitutionGroup="tableau-specialist:abstract-publish-workbook-request-body" name="publish-workbook-request-body">
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="tableau-specialist:com.mulesoft.connector.tableau.api.param.PublishWorkbookRequestBody"></xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="com.mulesoft.connector.tableau.api.param.PublishWorkbookRequestSessionId">
+    <xs:complexContent>
+      <xs:extension xmlns:tableau-specialist="http://www.mulesoft.org/schema/mule/tableau-specialist" base="tableau-specialist:com.mulesoft.connector.tableau.api.param.PublishWorkbookRequestOption">
+        <xs:attribute xmlns:mule="http://www.mulesoft.org/schema/mule/core" type="mule:expressionString" use="optional" name="uploadSessionId"></xs:attribute>
+        <xs:attribute type="xs:string" use="optional" default="#[payload]" name="workbookAttributes"></xs:attribute>
+        <xs:attribute type="tableau-specialist:com.mulesoft.connector.tableau.api.param.PublishWorkbookTypeEnumType" use="optional" name="workbookFileType"></xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element xmlns:tableau-specialist="http://www.mulesoft.org/schema/mule/tableau-specialist" type="tableau-specialist:com.mulesoft.connector.tableau.api.param.PublishWorkbookRequestSessionId" substitutionGroup="tableau-specialist:abstract-publish-workbook-request-option" abstract="true" name="abstract-publish-workbook-request-session-id"></xs:element>
+  <xs:element xmlns:tableau-specialist="http://www.mulesoft.org/schema/mule/tableau-specialist" substitutionGroup="tableau-specialist:abstract-publish-workbook-request-session-id" name="publish-workbook-request-session-id">
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="tableau-specialist:com.mulesoft.connector.tableau.api.param.PublishWorkbookRequestSessionId"></xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="com.mulesoft.connector.tableau.api.param.PublishDatasourceRequestOption">
+    <xs:complexContent>
+      <xs:extension xmlns:mule="http://www.mulesoft.org/schema/mule/core" base="mule:abstractExtensionType"></xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element xmlns:tableau-specialist="http://www.mulesoft.org/schema/mule/tableau-specialist" xmlns:mule="http://www.mulesoft.org/schema/mule/core" type="tableau-specialist:com.mulesoft.connector.tableau.api.param.PublishDatasourceRequestOption" substitutionGroup="mule:abstract-shared-extension" abstract="true" name="global-abstract-publish-datasource-request-option"></xs:element>
+  <xs:element xmlns:tableau-specialist="http://www.mulesoft.org/schema/mule/tableau-specialist" type="tableau-specialist:com.mulesoft.connector.tableau.api.param.PublishDatasourceRequestOption" abstract="true" name="abstract-publish-datasource-request-option"></xs:element>
+  <xs:complexType name="com.mulesoft.connector.tableau.api.param.PublishDatasourceRequestBody">
+    <xs:complexContent>
+      <xs:extension xmlns:tableau-specialist="http://www.mulesoft.org/schema/mule/tableau-specialist" base="tableau-specialist:com.mulesoft.connector.tableau.api.param.PublishDatasourceRequestOption">
+        <xs:attribute type="xs:string" use="optional" name="datasourceFileContent"></xs:attribute>
+        <xs:attribute type="xs:string" use="optional" default="#[payload]" name="datasourceAttributes"></xs:attribute>
+        <xs:attribute xmlns:mule="http://www.mulesoft.org/schema/mule/core" type="mule:expressionString" use="optional" name="datasourceFileName"></xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element xmlns:tableau-specialist="http://www.mulesoft.org/schema/mule/tableau-specialist" type="tableau-specialist:com.mulesoft.connector.tableau.api.param.PublishDatasourceRequestBody" substitutionGroup="tableau-specialist:abstract-publish-datasource-request-option" abstract="true" name="abstract-publish-datasource-request-body"></xs:element>
+  <xs:element xmlns:tableau-specialist="http://www.mulesoft.org/schema/mule/tableau-specialist" substitutionGroup="tableau-specialist:abstract-publish-datasource-request-body" name="publish-datasource-request-body">
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="tableau-specialist:com.mulesoft.connector.tableau.api.param.PublishDatasourceRequestBody"></xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="com.mulesoft.connector.tableau.api.param.PublishDatasourceRequestSessionId">
+    <xs:complexContent>
+      <xs:extension xmlns:tableau-specialist="http://www.mulesoft.org/schema/mule/tableau-specialist" base="tableau-specialist:com.mulesoft.connector.tableau.api.param.PublishDatasourceRequestOption">
+        <xs:attribute xmlns:mule="http://www.mulesoft.org/schema/mule/core" type="mule:expressionString" use="optional" name="uploadSessionId"></xs:attribute>
+        <xs:attribute type="xs:string" use="optional" default="#[payload]" name="datasourceAttributes"></xs:attribute>
+        <xs:attribute type="tableau-specialist:com.mulesoft.connector.tableau.api.param.PublishDatasourceTypeEnumType" use="optional" name="datasourceFileType"></xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element xmlns:tableau-specialist="http://www.mulesoft.org/schema/mule/tableau-specialist" type="tableau-specialist:com.mulesoft.connector.tableau.api.param.PublishDatasourceRequestSessionId" substitutionGroup="tableau-specialist:abstract-publish-datasource-request-option" abstract="true" name="abstract-publish-datasource-request-session-id"></xs:element>
+  <xs:element xmlns:tableau-specialist="http://www.mulesoft.org/schema/mule/tableau-specialist" substitutionGroup="tableau-specialist:abstract-publish-datasource-request-session-id" name="publish-datasource-request-session-id">
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="tableau-specialist:com.mulesoft.connector.tableau.api.param.PublishDatasourceRequestSessionId"></xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element xmlns:mule="http://www.mulesoft.org/schema/mule/core" substitutionGroup="mule:abstract-shared-extension" name="tableau-hyper-config">
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="mule:abstractExtensionType">
+          <xs:annotation>
+            <xs:documentation>This configuration will provide users access to the HyperAPI Java library developed by Tableau. Users will be allowed to create, update, delete, modify hyper files locally.</xs:documentation>
+          </xs:annotation>
+          <xs:sequence minOccurs="0" maxOccurs="1">
+            <xs:element minOccurs="0" maxOccurs="1" ref="mule:abstractConnectionProvider"></xs:element>
+            <xs:element minOccurs="0" maxOccurs="1" ref="mule:expiration-policy"></xs:element>
+          </xs:sequence>
+          <xs:attribute type="xs:string" use="required" name="name">
+            <xs:annotation>
+              <xs:documentation>The identifier of this element used to reference it in other components</xs:documentation>
+            </xs:annotation>
+          </xs:attribute>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element xmlns:mule="http://www.mulesoft.org/schema/mule/core" substitutionGroup="mule:abstractConnectionProvider" name="connection">
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="mule:abstractConnectionProviderType">
+          <xs:sequence minOccurs="0" maxOccurs="1">
+            <xs:element minOccurs="0" maxOccurs="1" ref="mule:reconnection"></xs:element>
+          </xs:sequence>
+          <xs:attribute type="mule:expressionString" use="optional" name="workingDir">
+            <xs:annotation>
+              <xs:documentation>The directory to be considered as the root of every relative path used with this connector. If not provided, it will default to the value of the user.home system property. If that system property is not set, then the connector will fail to initialise.</xs:documentation>
+            </xs:annotation>
+          </xs:attribute>
+          <xs:attribute type="mule:expressionString" use="optional" name="hyperdDir"></xs:attribute>
+          <xs:attribute xmlns="http://www.mulesoft.org/schema/mule/tableau-specialist" type="com.mulesoft.connector.tableau.api.param.TableauTelemetryEnumType" use="optional" default="DO_NOT_SEND_USAGE_DATA_TO_TABLEAU" name="telemetry"></xs:attribute>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element xmlns="http://www.mulesoft.org/schema/mule/tableau-specialist" xmlns:mule="http://www.mulesoft.org/schema/mule/core" type="CreateHyperFileType" substitutionGroup="mule:abstract-operator" name="create-hyper-file">
+    <xs:annotation>
+      <xs:documentation>Creates an empty hyper file based on the column definition provided by the user.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="CreateHyperFileType">
+    <xs:complexContent>
+      <xs:extension xmlns:mule="http://www.mulesoft.org/schema/mule/core" base="mule:abstractOperatorType">
+        <xs:sequence minOccurs="0" maxOccurs="1">
+          <xs:element minOccurs="0" maxOccurs="1" ref="mule:abstract-reconnection-strategy"></xs:element>
+          <xs:element minOccurs="0" maxOccurs="1" name="columns">
+            <xs:annotation>
+              <xs:documentation>A list of the columns that will be defined in the table.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element xmlns:tableau-specialist="http://www.mulesoft.org/schema/mule/tableau-specialist" minOccurs="0" maxOccurs="unbounded" ref="tableau-specialist:abstract-column-definition"></xs:element>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute type="mule:expressionString" use="required" name="hyperFileName">
+          <xs:annotation>
+            <xs:documentation>The name of the hyper file that will be created.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="mule:expressionString" use="optional" name="schemaName">
+          <xs:annotation>
+            <xs:documentation>The name of the schema where the table will be created.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="mule:expressionString" use="required" name="tableName">
+          <xs:annotation>
+            <xs:documentation>The name of the table.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="mule:expressionList" use="optional" name="columns">
+          <xs:annotation>
+            <xs:documentation>A list of the columns that will be defined in the table.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="xs:string" use="optional" name="config-ref">
+          <xs:annotation>
+            <xs:documentation>The name of the configuration to be used to execute this component</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="com.mulesoft.connector.tableau.api.param.ColumnDefinition">
+    <xs:complexContent>
+      <xs:extension xmlns:mule="http://www.mulesoft.org/schema/mule/core" base="mule:abstractExtensionType">
+        <xs:attribute type="mule:expressionString" use="required" name="columnName"></xs:attribute>
+        <xs:attribute xmlns="http://www.mulesoft.org/schema/mule/tableau-specialist" type="com.mulesoft.connector.tableau.api.param.HyperSqlTypeEnumType" use="required" name="columnType"></xs:attribute>
+        <xs:attribute xmlns="http://www.mulesoft.org/schema/mule/tableau-specialist" type="com.mulesoft.connector.tableau.api.param.HyperSqlNullabilityEnumType" use="required" name="columnNullability"></xs:attribute>
+        <xs:attribute type="mule:expressionString" use="optional" name="columnCollation"></xs:attribute>
+        <xs:attribute type="mule:expressionInt" use="optional" name="numericScale"></xs:attribute>
+        <xs:attribute type="mule:expressionInt" use="optional" name="numericPrecision"></xs:attribute>
+        <xs:attribute type="mule:expressionInt" use="optional" name="length"></xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element xmlns:tableau-specialist="http://www.mulesoft.org/schema/mule/tableau-specialist" type="tableau-specialist:com.mulesoft.connector.tableau.api.param.ColumnDefinition" abstract="true" name="abstract-column-definition"></xs:element>
+  <xs:element xmlns:tableau-specialist="http://www.mulesoft.org/schema/mule/tableau-specialist" substitutionGroup="tableau-specialist:abstract-column-definition" name="column-definition">
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="tableau-specialist:com.mulesoft.connector.tableau.api.param.ColumnDefinition"></xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element xmlns="http://www.mulesoft.org/schema/mule/tableau-specialist" xmlns:mule="http://www.mulesoft.org/schema/mule/core" type="InsertDataToHyperFileType" substitutionGroup="mule:abstract-operator" name="insert-data-to-hyper-file">
+    <xs:annotation>
+      <xs:documentation>Inserts data into a table belonging to a hyper file.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="InsertDataToHyperFileType">
+    <xs:complexContent>
+      <xs:extension xmlns:mule="http://www.mulesoft.org/schema/mule/core" base="mule:abstractOperatorType">
+        <xs:sequence minOccurs="0" maxOccurs="1">
+          <xs:element minOccurs="0" maxOccurs="1" ref="mule:abstract-reconnection-strategy"></xs:element>
+          <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="insert-command">
+            <xs:annotation>
+              <xs:documentation>The SQL command to be used in order to insert the data in the table from hyper file.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute type="mule:expressionString" use="required" name="hyperFileName">
+          <xs:annotation>
+            <xs:documentation>The name of the hyper file where to insert data.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="xs:string" use="optional" name="config-ref">
+          <xs:annotation>
+            <xs:documentation>The name of the configuration to be used to execute this component</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="xs:string" use="optional" name="target">
+          <xs:annotation>
+            <xs:documentation>The name of a variable on which the operation's output will be placed</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="mule:expressionString" use="optional" default="#[payload]" name="targetValue">
+          <xs:annotation>
+            <xs:documentation>An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element xmlns="http://www.mulesoft.org/schema/mule/tableau-specialist" xmlns:mule="http://www.mulesoft.org/schema/mule/core" type="InsertDataToHyperFileFromCsvType" substitutionGroup="mule:abstract-operator" name="insert-data-to-hyper-file-from-csv">
+    <xs:annotation>
+      <xs:documentation>Populates a hyper file from an existing CSV document.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="InsertDataToHyperFileFromCsvType">
+    <xs:complexContent>
+      <xs:extension xmlns:mule="http://www.mulesoft.org/schema/mule/core" base="mule:abstractOperatorType">
+        <xs:sequence minOccurs="0" maxOccurs="1">
+          <xs:element minOccurs="0" maxOccurs="1" ref="mule:abstract-reconnection-strategy"></xs:element>
+          <xs:element minOccurs="0" maxOccurs="1" name="columns">
+            <xs:annotation>
+              <xs:documentation>A list of the columns that will be defined in the table.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element xmlns:tableau-specialist="http://www.mulesoft.org/schema/mule/tableau-specialist" minOccurs="0" maxOccurs="unbounded" ref="tableau-specialist:abstract-column-definition"></xs:element>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute type="mule:expressionString" use="required" name="hyperFileName">
+          <xs:annotation>
+            <xs:documentation>The name of the hyper file.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="mule:expressionString" use="optional" name="schemaName">
+          <xs:annotation>
+            <xs:documentation>The name of the schema.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="mule:expressionString" use="required" name="tableName">
+          <xs:annotation>
+            <xs:documentation>The name of the table.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="mule:expressionList" use="optional" name="columns">
+          <xs:annotation>
+            <xs:documentation>A list of the columns that will be defined in the table.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="mule:expressionString" use="required" name="csvFilePath">
+          <xs:annotation>
+            <xs:documentation>The path to the csv file.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="mule:expressionString" use="required" name="csvNullColumn">
+          <xs:annotation>
+            <xs:documentation>A parameter that defines what the csv file is using to represent NULL values.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="mule:expressionString" use="required" name="csvDelimiter">
+          <xs:annotation>
+            <xs:documentation>A parameter that defines what the csv file is using as a delimiter.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="mule:expressionBoolean" use="optional" default="false" name="csvHeader">
+          <xs:annotation>
+            <xs:documentation>A Boolean value that specifies whether the csv file contains a header.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="xs:string" use="optional" name="config-ref">
+          <xs:annotation>
+            <xs:documentation>The name of the configuration to be used to execute this component</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="xs:string" use="optional" name="target">
+          <xs:annotation>
+            <xs:documentation>The name of a variable on which the operation's output will be placed</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="mule:expressionString" use="optional" default="#[payload]" name="targetValue">
+          <xs:annotation>
+            <xs:documentation>An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element xmlns="http://www.mulesoft.org/schema/mule/tableau-specialist" xmlns:mule="http://www.mulesoft.org/schema/mule/core" type="QueryDataFromHyperFileType" substitutionGroup="mule:abstract-operator" name="query-data-from-hyper-file">
+    <xs:annotation>
+      <xs:documentation>Queries data from tables belonging to a hyper file.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="QueryDataFromHyperFileType">
+    <xs:complexContent>
+      <xs:extension xmlns:mule="http://www.mulesoft.org/schema/mule/core" base="mule:abstractOperatorType">
+        <xs:sequence minOccurs="0" maxOccurs="1">
+          <xs:element minOccurs="0" maxOccurs="1" ref="mule:abstract-reconnection-strategy"></xs:element>
+          <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="query"></xs:element>
+        </xs:sequence>
+        <xs:attribute type="xs:string" use="optional" name="config-ref">
+          <xs:annotation>
+            <xs:documentation>The name of the configuration to be used to execute this component</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="mule:expressionString" use="required" name="hyperFileName"></xs:attribute>
+        <xs:attribute type="xs:string" use="optional" name="target">
+          <xs:annotation>
+            <xs:documentation>The name of a variable on which the operation's output will be placed</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="mule:expressionString" use="optional" default="#[payload]" name="targetValue">
+          <xs:annotation>
+            <xs:documentation>An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element xmlns="http://www.mulesoft.org/schema/mule/tableau-specialist" xmlns:mule="http://www.mulesoft.org/schema/mule/core" type="UpdateDataFromHyperFileType" substitutionGroup="mule:abstract-operator" name="update-data-from-hyper-file">
+    <xs:annotation>
+      <xs:documentation>Update data from tables in an .hyper file by sending SQL queries.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="UpdateDataFromHyperFileType">
+    <xs:complexContent>
+      <xs:extension xmlns:mule="http://www.mulesoft.org/schema/mule/core" base="mule:abstractOperatorType">
+        <xs:sequence minOccurs="0" maxOccurs="1">
+          <xs:element minOccurs="0" maxOccurs="1" ref="mule:abstract-reconnection-strategy"></xs:element>
+          <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="update-command">
+            <xs:annotation>
+              <xs:documentation>The SQL command to be used in order to update the data in the table from hyper file.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute type="mule:expressionString" use="required" name="hyperFileName">
+          <xs:annotation>
+            <xs:documentation>The name of the hyper file that will be updated.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="xs:string" use="optional" name="config-ref">
+          <xs:annotation>
+            <xs:documentation>The name of the configuration to be used to execute this component</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="xs:string" use="optional" name="target">
+          <xs:annotation>
+            <xs:documentation>The name of a variable on which the operation's output will be placed</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="mule:expressionString" use="optional" default="#[payload]" name="targetValue">
+          <xs:annotation>
+            <xs:documentation>An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element xmlns:mule="http://www.mulesoft.org/schema/mule/core" substitutionGroup="mule:abstract-shared-extension" name="tableau-server-specialist-config">
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="mule:abstractExtensionType">
+          <xs:annotation>
+            <xs:documentation>This configuration will provide users access to the rest API exposed by Tableau. All the operations that are executed over the rest API will be bound to this configuration.</xs:documentation>
+          </xs:annotation>
+          <xs:sequence minOccurs="1" maxOccurs="1">
+            <xs:element minOccurs="1" maxOccurs="1" ref="mule:abstractConnectionProvider"></xs:element>
+            <xs:element minOccurs="0" maxOccurs="1" ref="mule:expiration-policy"></xs:element>
+          </xs:sequence>
+          <xs:attribute type="mule:expressionInt" use="optional" default="30" name="readTimeout">
+            <xs:annotation>
+              <xs:documentation>Defines the default amount of time, defined in #readTimeoutUnit, to wait for a response when executing an operation.</xs:documentation>
+            </xs:annotation>
+          </xs:attribute>
+          <xs:attribute xmlns="http://www.mulesoft.org/schema/mule/tableau-specialist" type="java.util.concurrent.TimeUnitEnumType" use="optional" default="SECONDS" name="readTimeoutUnit">
+            <xs:annotation>
+              <xs:documentation>A TimeUnit which qualifies the #readTimeout</xs:documentation>
+            </xs:annotation>
+          </xs:attribute>
+          <xs:attribute type="xs:string" use="required" name="name">
+            <xs:annotation>
+              <xs:documentation>The identifier of this element used to reference it in other components</xs:documentation>
+            </xs:annotation>
+          </xs:attribute>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element xmlns:mule="http://www.mulesoft.org/schema/mule/core" substitutionGroup="mule:abstractConnectionProvider" name="tableau-server-basic-username-password-connection">
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="mule:abstractConnectionProviderType">
+          <xs:sequence minOccurs="0" maxOccurs="1">
+            <xs:element minOccurs="0" maxOccurs="1" ref="mule:reconnection"></xs:element>
+            <xs:element xmlns:tls="http://www.mulesoft.org/schema/mule/tls" minOccurs="0" maxOccurs="1" ref="tls:context"></xs:element>
+            <xs:element minOccurs="0" maxOccurs="1" name="proxy-config">
+              <xs:annotation>
+                <xs:documentation>Proxy configuration for the connector.</xs:documentation>
+              </xs:annotation>
+              <xs:complexType>
+                <xs:complexContent>
+                  <xs:extension xmlns:tableau-specialist="http://www.mulesoft.org/schema/mule/tableau-specialist" base="tableau-specialist:com.mulesoft.connector.tableau.api.param.ProxyConfiguration"></xs:extension>
+                </xs:complexContent>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+          <xs:attribute type="xs:string" use="optional" name="tlsContext"></xs:attribute>
+          <xs:attribute type="mule:expressionString" use="required" name="serverUrl">
+            <xs:annotation>
+              <xs:documentation>The URL of the Tableau server.</xs:documentation>
+            </xs:annotation>
+          </xs:attribute>
+          <xs:attribute type="mule:expressionString" use="required" name="apiVersion">
+            <xs:annotation>
+              <xs:documentation>API version.</xs:documentation>
+            </xs:annotation>
+          </xs:attribute>
+          <xs:attribute type="mule:expressionInt" use="optional" default="-1" name="connectionTimeout">
+            <xs:annotation>
+              <xs:documentation>Specifies the amount of time that the consumer will attempt to establish a connection before it times out. Works in tandem with #connectionTimeoutUnit. Values less than one millisecond will be converted to 0.</xs:documentation>
+            </xs:annotation>
+          </xs:attribute>
+          <xs:attribute xmlns="http://www.mulesoft.org/schema/mule/tableau-specialist" type="java.util.concurrent.TimeUnitEnumType" use="optional" default="SECONDS" name="connectionTimeoutUnit">
+            <xs:annotation>
+              <xs:documentation>A TimeUnit which qualifies the #connectionTimeout</xs:documentation>
+            </xs:annotation>
+          </xs:attribute>
+          <xs:attribute type="xs:string" use="optional" name="proxyConfig">
+            <xs:annotation>
+              <xs:documentation>Proxy configuration for the connector.</xs:documentation>
+            </xs:annotation>
+          </xs:attribute>
+          <xs:attribute type="mule:expressionString" use="required" name="username">
+            <xs:annotation>
+              <xs:documentation>Username used to initialize the session.</xs:documentation>
+            </xs:annotation>
+          </xs:attribute>
+          <xs:attribute type="mule:expressionString" use="required" name="password">
+            <xs:annotation>
+              <xs:documentation>Password used to authenticate the user.</xs:documentation>
+            </xs:annotation>
+          </xs:attribute>
+          <xs:attribute type="mule:expressionString" use="optional" name="contentUrl">
+            <xs:annotation>
+              <xs:documentation>The content URL (subpath) of the site you are signing in to.</xs:documentation>
+            </xs:annotation>
+          </xs:attribute>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="com.mulesoft.connector.tableau.api.param.ProxyConfiguration">
+    <xs:annotation>
+      <xs:documentation>Proxy configuration for the connector.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension xmlns:mule="http://www.mulesoft.org/schema/mule/core" base="mule:abstractExtensionType">
+        <xs:attribute type="mule:expressionString" use="required" name="host"></xs:attribute>
+        <xs:attribute type="mule:expressionInt" use="required" name="port"></xs:attribute>
+        <xs:attribute type="mule:expressionString" use="optional" name="username"></xs:attribute>
+        <xs:attribute type="mule:expressionString" use="optional" name="password"></xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element xmlns:mule="http://www.mulesoft.org/schema/mule/core" substitutionGroup="mule:abstractConnectionProvider" name="tableau-server-pat-connection">
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="mule:abstractConnectionProviderType">
+          <xs:sequence minOccurs="0" maxOccurs="1">
+            <xs:element minOccurs="0" maxOccurs="1" ref="mule:reconnection"></xs:element>
+            <xs:element xmlns:tls="http://www.mulesoft.org/schema/mule/tls" minOccurs="0" maxOccurs="1" ref="tls:context"></xs:element>
+            <xs:element minOccurs="0" maxOccurs="1" name="proxy-config">
+              <xs:annotation>
+                <xs:documentation>Proxy configuration for the connector.</xs:documentation>
+              </xs:annotation>
+              <xs:complexType>
+                <xs:complexContent>
+                  <xs:extension xmlns:tableau-specialist="http://www.mulesoft.org/schema/mule/tableau-specialist" base="tableau-specialist:com.mulesoft.connector.tableau.api.param.ProxyConfiguration"></xs:extension>
+                </xs:complexContent>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+          <xs:attribute type="xs:string" use="optional" name="tlsContext"></xs:attribute>
+          <xs:attribute type="mule:expressionString" use="required" name="serverUrl">
+            <xs:annotation>
+              <xs:documentation>The URL of the Tableau server.</xs:documentation>
+            </xs:annotation>
+          </xs:attribute>
+          <xs:attribute type="mule:expressionString" use="required" name="apiVersion">
+            <xs:annotation>
+              <xs:documentation>API version.</xs:documentation>
+            </xs:annotation>
+          </xs:attribute>
+          <xs:attribute type="mule:expressionInt" use="optional" default="-1" name="connectionTimeout">
+            <xs:annotation>
+              <xs:documentation>Specifies the amount of time that the consumer will attempt to establish a connection before it times out. Works in tandem with #connectionTimeoutUnit. Values less than one millisecond will be converted to 0.</xs:documentation>
+            </xs:annotation>
+          </xs:attribute>
+          <xs:attribute xmlns="http://www.mulesoft.org/schema/mule/tableau-specialist" type="java.util.concurrent.TimeUnitEnumType" use="optional" default="SECONDS" name="connectionTimeoutUnit">
+            <xs:annotation>
+              <xs:documentation>A TimeUnit which qualifies the #connectionTimeout</xs:documentation>
+            </xs:annotation>
+          </xs:attribute>
+          <xs:attribute type="xs:string" use="optional" name="proxyConfig">
+            <xs:annotation>
+              <xs:documentation>Proxy configuration for the connector.</xs:documentation>
+            </xs:annotation>
+          </xs:attribute>
+          <xs:attribute type="mule:expressionString" use="required" name="personalAccessTokenName">
+            <xs:annotation>
+              <xs:documentation>Your personal access token name defined in Tableau server UI. The personal access token name and personal access token secret are mutually exclusive with the username and password fields.</xs:documentation>
+            </xs:annotation>
+          </xs:attribute>
+          <xs:attribute type="mule:expressionString" use="required" name="personalAccessTokenSecret">
+            <xs:annotation>
+              <xs:documentation>Your personal access token secret that was defined in Tableau UI. The personal access token name and personal access token secret are mutually exclusive with the username and password fields.</xs:documentation>
+            </xs:annotation>
+          </xs:attribute>
+          <xs:attribute type="mule:expressionString" use="optional" name="contentUrl">
+            <xs:annotation>
+              <xs:documentation>The content URL (subpath) of the site you are signing in to.</xs:documentation>
+            </xs:annotation>
+          </xs:attribute>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element xmlns="http://www.mulesoft.org/schema/mule/tableau-specialist" xmlns:mule="http://www.mulesoft.org/schema/mule/core" type="New-or-modified-datasource-listenerType" substitutionGroup="mule:abstract-message-source" name="new-or-modified-datasource-listener"></xs:element>
+  <xs:complexType name="New-or-modified-datasource-listenerType">
+    <xs:complexContent>
+      <xs:extension xmlns:mule="http://www.mulesoft.org/schema/mule/core" base="mule:abstractMessageSourceType">
+        <xs:sequence minOccurs="1" maxOccurs="1">
+          <xs:element minOccurs="0" maxOccurs="1" ref="mule:abstract-redelivery-policy"></xs:element>
+          <xs:element minOccurs="0" maxOccurs="1" ref="mule:abstract-reconnection-strategy"></xs:element>
+          <xs:element minOccurs="1" maxOccurs="1" ref="mule:scheduling-strategy"></xs:element>
+        </xs:sequence>
+        <xs:attribute type="xs:string" use="optional" name="since"></xs:attribute>
+        <xs:attribute type="xs:string" use="required" name="config-ref">
+          <xs:annotation>
+            <xs:documentation>The name of the configuration to be used to execute this component</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="mule:substitutableBoolean" use="optional" name="primaryNodeOnly">
+          <xs:annotation>
+            <xs:documentation>Whether this source should only be executed on the primary node when runnning in Cluster</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element xmlns="http://www.mulesoft.org/schema/mule/tableau-specialist" xmlns:mule="http://www.mulesoft.org/schema/mule/core" type="AppendToFileUploadType" substitutionGroup="mule:abstract-operator" name="append-to-file-upload">
+    <xs:annotation>
+      <xs:documentation>Uploads a block of data and appends it to the data that is already uploaded.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="AppendToFileUploadType">
+    <xs:complexContent>
+      <xs:extension xmlns:mule="http://www.mulesoft.org/schema/mule/core" base="mule:abstractOperatorType">
+        <xs:sequence minOccurs="0" maxOccurs="1">
+          <xs:element minOccurs="0" maxOccurs="1" ref="mule:abstract-byte-streaming-strategy"></xs:element>
+          <xs:element minOccurs="0" maxOccurs="1" ref="mule:abstract-reconnection-strategy"></xs:element>
+          <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="file-content">
+            <xs:annotation>
+              <xs:documentation>The content of the file to be uploaded is included in a MIME multipart message.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute type="mule:expressionString" use="required" name="uploadSessionId">
+          <xs:annotation>
+            <xs:documentation>The ID of the upload session. You get this value when you start an upload session using Initiate File Upload.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="xs:string" use="required" name="config-ref">
+          <xs:annotation>
+            <xs:documentation>The name of the configuration to be used to execute this component</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="xs:string" use="optional" name="target">
+          <xs:annotation>
+            <xs:documentation>The name of a variable on which the operation's output will be placed</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="mule:expressionString" use="optional" default="#[payload]" name="targetValue">
+          <xs:annotation>
+            <xs:documentation>An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element xmlns="http://www.mulesoft.org/schema/mule/tableau-specialist" xmlns:mule="http://www.mulesoft.org/schema/mule/core" type="CreateProjectType" substitutionGroup="mule:abstract-operator" name="create-project">
+    <xs:annotation>
+      <xs:documentation>Creates a project on the site. You can also create project hierarchies by creating a project under the specified parent project on the site.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="CreateProjectType">
+    <xs:complexContent>
+      <xs:extension xmlns:mule="http://www.mulesoft.org/schema/mule/core" base="mule:abstractOperatorType">
+        <xs:sequence minOccurs="0" maxOccurs="1">
+          <xs:element minOccurs="0" maxOccurs="1" ref="mule:abstract-byte-streaming-strategy"></xs:element>
+          <xs:element minOccurs="0" maxOccurs="1" ref="mule:abstract-reconnection-strategy"></xs:element>
+          <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="content">
+            <xs:annotation>
+              <xs:documentation>An input stream containing specific attributes for this operation. Check metadata.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute type="mule:expressionBoolean" use="optional" default="false" name="publishValue">
+          <xs:annotation>
+            <xs:documentation>A Boolean value that specifies whether to publish the sample workbooks provided by Tableau to the project.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="xs:string" use="required" name="config-ref">
+          <xs:annotation>
+            <xs:documentation>The name of the configuration to be used to execute this component</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="xs:string" use="optional" name="target">
+          <xs:annotation>
+            <xs:documentation>The name of a variable on which the operation's output will be placed</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="mule:expressionString" use="optional" default="#[payload]" name="targetValue">
+          <xs:annotation>
+            <xs:documentation>An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element xmlns="http://www.mulesoft.org/schema/mule/tableau-specialist" xmlns:mule="http://www.mulesoft.org/schema/mule/core" type="CreateSiteType" substitutionGroup="mule:abstract-operator" name="create-site">
+    <xs:annotation>
+      <xs:documentation>Creates a site on Tableau Server.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="CreateSiteType">
+    <xs:complexContent>
+      <xs:extension xmlns:mule="http://www.mulesoft.org/schema/mule/core" base="mule:abstractOperatorType">
+        <xs:sequence minOccurs="0" maxOccurs="1">
+          <xs:element minOccurs="0" maxOccurs="1" ref="mule:abstract-byte-streaming-strategy"></xs:element>
+          <xs:element minOccurs="0" maxOccurs="1" ref="mule:abstract-reconnection-strategy"></xs:element>
+          <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="content">
+            <xs:annotation>
+              <xs:documentation>An input stream containing specific attributes for this operation. Check metadata.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute type="xs:string" use="required" name="config-ref">
+          <xs:annotation>
+            <xs:documentation>The name of the configuration to be used to execute this component</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="xs:string" use="optional" name="target">
+          <xs:annotation>
+            <xs:documentation>The name of a variable on which the operation's output will be placed</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="mule:expressionString" use="optional" default="#[payload]" name="targetValue">
+          <xs:annotation>
+            <xs:documentation>An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element xmlns="http://www.mulesoft.org/schema/mule/tableau-specialist" xmlns:mule="http://www.mulesoft.org/schema/mule/core" type="DeleteProjectType" substitutionGroup="mule:abstract-operator" name="delete-project">
+    <xs:annotation>
+      <xs:documentation>Delete the specified project on the site. When a project is deleted, all of its assets are also deleted: associated workbooks, data sources, project view options, and rights. Use this method with caution.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="DeleteProjectType">
+    <xs:complexContent>
+      <xs:extension xmlns:mule="http://www.mulesoft.org/schema/mule/core" base="mule:abstractOperatorType">
+        <xs:sequence minOccurs="0" maxOccurs="1">
+          <xs:element minOccurs="0" maxOccurs="1" ref="mule:abstract-byte-streaming-strategy"></xs:element>
+          <xs:element minOccurs="0" maxOccurs="1" ref="mule:abstract-reconnection-strategy"></xs:element>
+        </xs:sequence>
+        <xs:attribute type="mule:expressionString" use="required" name="projectId">
+          <xs:annotation>
+            <xs:documentation>The ID of the project to delete.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="xs:string" use="required" name="config-ref">
+          <xs:annotation>
+            <xs:documentation>The name of the configuration to be used to execute this component</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="xs:string" use="optional" name="target">
+          <xs:annotation>
+            <xs:documentation>The name of a variable on which the operation's output will be placed</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="mule:expressionString" use="optional" default="#[payload]" name="targetValue">
+          <xs:annotation>
+            <xs:documentation>An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element xmlns="http://www.mulesoft.org/schema/mule/tableau-specialist" xmlns:mule="http://www.mulesoft.org/schema/mule/core" type="DeleteSiteType" substitutionGroup="mule:abstract-operator" name="delete-site">
+    <xs:annotation>
+      <xs:documentation>Deletes the site the user is logged in to.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="DeleteSiteType">
+    <xs:complexContent>
+      <xs:extension xmlns:mule="http://www.mulesoft.org/schema/mule/core" base="mule:abstractOperatorType">
+        <xs:sequence minOccurs="0" maxOccurs="1">
+          <xs:element minOccurs="0" maxOccurs="1" ref="mule:abstract-byte-streaming-strategy"></xs:element>
+          <xs:element minOccurs="0" maxOccurs="1" ref="mule:abstract-reconnection-strategy"></xs:element>
+        </xs:sequence>
+        <xs:attribute type="xs:string" use="required" name="config-ref">
+          <xs:annotation>
+            <xs:documentation>The name of the configuration to be used to execute this component</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="xs:string" use="optional" name="target">
+          <xs:annotation>
+            <xs:documentation>The name of a variable on which the operation's output will be placed</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="mule:expressionString" use="optional" default="#[payload]" name="targetValue">
+          <xs:annotation>
+            <xs:documentation>An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element xmlns="http://www.mulesoft.org/schema/mule/tableau-specialist" xmlns:mule="http://www.mulesoft.org/schema/mule/core" type="InitiateFileUploadType" substitutionGroup="mule:abstract-operator" name="initiate-file-upload">
+    <xs:annotation>
+      <xs:documentation>Initiate the upload process for a file.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="InitiateFileUploadType">
+    <xs:complexContent>
+      <xs:extension xmlns:mule="http://www.mulesoft.org/schema/mule/core" base="mule:abstractOperatorType">
+        <xs:sequence minOccurs="0" maxOccurs="1">
+          <xs:element minOccurs="0" maxOccurs="1" ref="mule:abstract-byte-streaming-strategy"></xs:element>
+          <xs:element minOccurs="0" maxOccurs="1" ref="mule:abstract-reconnection-strategy"></xs:element>
+        </xs:sequence>
+        <xs:attribute type="xs:string" use="required" name="config-ref">
+          <xs:annotation>
+            <xs:documentation>The name of the configuration to be used to execute this component</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="xs:string" use="optional" name="target">
+          <xs:annotation>
+            <xs:documentation>The name of a variable on which the operation's output will be placed</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="mule:expressionString" use="optional" default="#[payload]" name="targetValue">
+          <xs:annotation>
+            <xs:documentation>An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element xmlns="http://www.mulesoft.org/schema/mule/tableau-specialist" xmlns:mule="http://www.mulesoft.org/schema/mule/core" type="PublishDatasourceType" substitutionGroup="mule:abstract-operator" name="publish-datasource">
+    <xs:annotation>
+      <xs:documentation>Publishes a data source on the site, or appends data to an existing data source. To make other changes to a published data source, call Update Data Source or Update Data Source Connection. This method is used in two ways. You can call it to publish a data source in a single request. To do that, you include the content of the data source file in the body of the request. The maximum size of a file that can be published in a single request is 64 MB. If you want to avoid having the publishing process time out, you can use the asJob parameter to make data source publication asynchronous. Alternatively, you can publish a data source in multiple parts. To do that, you initiate a file upload by calling Initiate File Upload, send portions of the file to the server using Append to File Upload, and then commit the upload by calling Publish Data Source. In this case, Publish Data Source doesn't contain the file to publish.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="PublishDatasourceType">
+    <xs:complexContent>
+      <xs:extension xmlns:mule="http://www.mulesoft.org/schema/mule/core" base="mule:abstractOperatorType">
+        <xs:sequence minOccurs="0" maxOccurs="1">
+          <xs:element minOccurs="0" maxOccurs="1" ref="mule:abstract-byte-streaming-strategy"></xs:element>
+          <xs:element minOccurs="0" maxOccurs="1" ref="mule:abstract-reconnection-strategy"></xs:element>
+          <xs:element minOccurs="0" maxOccurs="1" name="datasource-request-options">
+            <xs:annotation>
+              <xs:documentation>Datasource object.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:choice minOccurs="1" maxOccurs="1">
+                <xs:element xmlns:tableau-specialist="http://www.mulesoft.org/schema/mule/tableau-specialist" minOccurs="1" maxOccurs="1" ref="tableau-specialist:abstract-publish-datasource-request-option"></xs:element>
+                <xs:element xmlns:tableau-specialist="http://www.mulesoft.org/schema/mule/tableau-specialist" minOccurs="1" maxOccurs="1" ref="tableau-specialist:global-abstract-publish-datasource-request-option"></xs:element>
+              </xs:choice>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute type="mule:expressionBoolean" use="optional" default="false" name="overwriteFlag">
+          <xs:annotation>
+            <xs:documentation>True to overwrite a data source that has the same name, or false to fail if the specified data source already exists.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="mule:expressionBoolean" use="optional" default="false" name="asJobValue">
+          <xs:annotation>
+            <xs:documentation>A Boolean value that is used to publish data sources asynchronously.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="mule:expressionBoolean" use="optional" default="false" name="appendFlag">
+          <xs:annotation>
+            <xs:documentation>True to append the data being published to an existing data source that has the same name. The default is false. If append-flag is set to true but the data source doesn't already exist, the operation fails.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="xs:string" use="optional" name="datasourceRequestOptions">
+          <xs:annotation>
+            <xs:documentation>Datasource object.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="xs:string" use="required" name="config-ref">
+          <xs:annotation>
+            <xs:documentation>The name of the configuration to be used to execute this component</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="xs:string" use="optional" name="target">
+          <xs:annotation>
+            <xs:documentation>The name of a variable on which the operation's output will be placed</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="mule:expressionString" use="optional" default="#[payload]" name="targetValue">
+          <xs:annotation>
+            <xs:documentation>An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element xmlns="http://www.mulesoft.org/schema/mule/tableau-specialist" xmlns:mule="http://www.mulesoft.org/schema/mule/core" type="PublishWorkbookType" substitutionGroup="mule:abstract-operator" name="publish-workbook">
+    <xs:annotation>
+      <xs:documentation>Publishes a workbook on the site. To make changes to a published workbook, call Update Workbook or Update Workbook Connection. This method is used in two ways. You can call it to publish a workbook in a single request. To do that, you include the content of the workbook file in the body of the request. The maximum size of a file that can be published in a single request is 64 MB. If you want to avoid having the publishing process time out, you can use the asJob parameter to make workbook publication asynchronous. Alternatively, you can publish a workbook in multiple parts. To do that, you initiate a file upload by calling Initiate File Upload, send portions of the file to the server using Append to File Upload, and then commit the upload by calling Publish Workbook. In this case, Publish Workbook doesn't contain the file to publish.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="PublishWorkbookType">
+    <xs:complexContent>
+      <xs:extension xmlns:mule="http://www.mulesoft.org/schema/mule/core" base="mule:abstractOperatorType">
+        <xs:sequence minOccurs="0" maxOccurs="1">
+          <xs:element minOccurs="0" maxOccurs="1" ref="mule:abstract-byte-streaming-strategy"></xs:element>
+          <xs:element minOccurs="0" maxOccurs="1" ref="mule:abstract-reconnection-strategy"></xs:element>
+          <xs:element minOccurs="0" maxOccurs="1" name="workbook-request-options">
+            <xs:annotation>
+              <xs:documentation>Workbook object.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:choice minOccurs="1" maxOccurs="1">
+                <xs:element xmlns:tableau-specialist="http://www.mulesoft.org/schema/mule/tableau-specialist" minOccurs="1" maxOccurs="1" ref="tableau-specialist:abstract-publish-workbook-request-option"></xs:element>
+                <xs:element xmlns:tableau-specialist="http://www.mulesoft.org/schema/mule/tableau-specialist" minOccurs="1" maxOccurs="1" ref="tableau-specialist:global-abstract-publish-workbook-request-option"></xs:element>
+              </xs:choice>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute type="mule:expressionBoolean" use="optional" default="false" name="overwriteFlag">
+          <xs:annotation>
+            <xs:documentation>True to overwrite a data source that has the same name, or false to fail if the specified data source already exists.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="mule:expressionBoolean" use="optional" default="false" name="asJobValue">
+          <xs:annotation>
+            <xs:documentation>A Boolean value that is used to publish data sources asynchronously.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="mule:expressionBoolean" use="optional" default="false" name="skipConnectionCheckFlag">
+          <xs:annotation>
+            <xs:documentation>If true, then the Tableau server will not check if a non-published connection of a workbook is reachable. Publishing will succeed but unchecked connection issues may result in a non-functioning workbook.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="xs:string" use="optional" name="workbookRequestOptions">
+          <xs:annotation>
+            <xs:documentation>Workbook object.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="xs:string" use="required" name="config-ref">
+          <xs:annotation>
+            <xs:documentation>The name of the configuration to be used to execute this component</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="xs:string" use="optional" name="target">
+          <xs:annotation>
+            <xs:documentation>The name of a variable on which the operation's output will be placed</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="mule:expressionString" use="optional" default="#[payload]" name="targetValue">
+          <xs:annotation>
+            <xs:documentation>An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element xmlns="http://www.mulesoft.org/schema/mule/tableau-specialist" xmlns:mule="http://www.mulesoft.org/schema/mule/core" type="QueryProjectsType" substitutionGroup="mule:abstract-operator" name="query-projects">
+    <xs:annotation>
+      <xs:documentation>Returns a list of projects on the specified site, with optional parameters for specifying the paging of large results.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="QueryProjectsType">
+    <xs:complexContent>
+      <xs:extension xmlns:mule="http://www.mulesoft.org/schema/mule/core" base="mule:abstractOperatorType">
+        <xs:sequence minOccurs="0" maxOccurs="1">
+          <xs:element minOccurs="0" maxOccurs="1" ref="mule:abstract-object-streaming-strategy"></xs:element>
+          <xs:element minOccurs="0" maxOccurs="1" ref="mule:abstract-reconnection-strategy"></xs:element>
+          <xs:element minOccurs="0" maxOccurs="1" name="filter-expressions">
+            <xs:annotation>
+              <xs:documentation>An expression that lets you specify a subset of data sources to return.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element xmlns:tableau-specialist="http://www.mulesoft.org/schema/mule/tableau-specialist" minOccurs="0" maxOccurs="unbounded" ref="tableau-specialist:abstract-filter-expression"></xs:element>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" maxOccurs="1" name="sort-expressions">
+            <xs:annotation>
+              <xs:documentation>An expression that lets you specify the order in which user information is returned.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element xmlns:tableau-specialist="http://www.mulesoft.org/schema/mule/tableau-specialist" minOccurs="0" maxOccurs="unbounded" ref="tableau-specialist:abstract-sort-expression"></xs:element>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute type="mule:expressionInt" use="optional" default="100" name="pageSize">
+          <xs:annotation>
+            <xs:documentation>The number of items to return in one response. The minimum is 1. The maximum is 1000. The default is 100.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="mule:expressionList" use="optional" name="filterExpressions">
+          <xs:annotation>
+            <xs:documentation>An expression that lets you specify a subset of data sources to return.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="mule:expressionList" use="optional" name="sortExpressions">
+          <xs:annotation>
+            <xs:documentation>An expression that lets you specify the order in which user information is returned.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="xs:string" use="required" name="config-ref">
+          <xs:annotation>
+            <xs:documentation>The name of the configuration to be used to execute this component</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="xs:string" use="optional" name="target">
+          <xs:annotation>
+            <xs:documentation>The name of a variable on which the operation's output will be placed</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="mule:expressionString" use="optional" default="#[payload]" name="targetValue">
+          <xs:annotation>
+            <xs:documentation>An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="com.mulesoft.connector.tableau.api.param.FilterExpression">
+    <xs:complexContent>
+      <xs:extension xmlns:mule="http://www.mulesoft.org/schema/mule/core" base="mule:abstractExtensionType">
+        <xs:attribute type="mule:expressionString" use="required" name="fieldName"></xs:attribute>
+        <xs:attribute type="mule:expressionString" use="required" name="operator"></xs:attribute>
+        <xs:attribute type="mule:expressionString" use="required" name="value"></xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element xmlns:tableau-specialist="http://www.mulesoft.org/schema/mule/tableau-specialist" type="tableau-specialist:com.mulesoft.connector.tableau.api.param.FilterExpression" abstract="true" name="abstract-filter-expression"></xs:element>
+  <xs:element xmlns:tableau-specialist="http://www.mulesoft.org/schema/mule/tableau-specialist" substitutionGroup="tableau-specialist:abstract-filter-expression" name="filter-expression">
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="tableau-specialist:com.mulesoft.connector.tableau.api.param.FilterExpression"></xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="com.mulesoft.connector.tableau.api.param.SortExpression">
+    <xs:complexContent>
+      <xs:extension xmlns:mule="http://www.mulesoft.org/schema/mule/core" base="mule:abstractExtensionType">
+        <xs:attribute type="mule:expressionString" use="required" name="fieldName"></xs:attribute>
+        <xs:attribute xmlns="http://www.mulesoft.org/schema/mule/tableau-specialist" type="com.mulesoft.connector.tableau.api.param.DirectionEnumType" use="required" name="direction"></xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element xmlns:tableau-specialist="http://www.mulesoft.org/schema/mule/tableau-specialist" type="tableau-specialist:com.mulesoft.connector.tableau.api.param.SortExpression" abstract="true" name="abstract-sort-expression"></xs:element>
+  <xs:element xmlns:tableau-specialist="http://www.mulesoft.org/schema/mule/tableau-specialist" substitutionGroup="tableau-specialist:abstract-sort-expression" name="sort-expression">
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="tableau-specialist:com.mulesoft.connector.tableau.api.param.SortExpression"></xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element xmlns="http://www.mulesoft.org/schema/mule/tableau-specialist" xmlns:mule="http://www.mulesoft.org/schema/mule/core" type="QuerySiteType" substitutionGroup="mule:abstract-operator" name="query-site">
+    <xs:annotation>
+      <xs:documentation>Returns information about the site the user is logged in to.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="QuerySiteType">
+    <xs:complexContent>
+      <xs:extension xmlns:mule="http://www.mulesoft.org/schema/mule/core" base="mule:abstractOperatorType">
+        <xs:sequence minOccurs="0" maxOccurs="1">
+          <xs:element minOccurs="0" maxOccurs="1" ref="mule:abstract-byte-streaming-strategy"></xs:element>
+          <xs:element minOccurs="0" maxOccurs="1" ref="mule:abstract-reconnection-strategy"></xs:element>
+        </xs:sequence>
+        <xs:attribute type="mule:expressionBoolean" use="optional" default="false" name="includeUsage">
+          <xs:annotation>
+            <xs:documentation>To include usage in the response.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="xs:string" use="required" name="config-ref">
+          <xs:annotation>
+            <xs:documentation>The name of the configuration to be used to execute this component</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="xs:string" use="optional" name="target">
+          <xs:annotation>
+            <xs:documentation>The name of a variable on which the operation's output will be placed</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="mule:expressionString" use="optional" default="#[payload]" name="targetValue">
+          <xs:annotation>
+            <xs:documentation>An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element xmlns="http://www.mulesoft.org/schema/mule/tableau-specialist" xmlns:mule="http://www.mulesoft.org/schema/mule/core" type="QuerySitesType" substitutionGroup="mule:abstract-operator" name="query-sites">
+    <xs:annotation>
+      <xs:documentation>Returns a list of the sites on the server that the caller of this method has access to.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="QuerySitesType">
+    <xs:complexContent>
+      <xs:extension xmlns:mule="http://www.mulesoft.org/schema/mule/core" base="mule:abstractOperatorType">
+        <xs:sequence minOccurs="0" maxOccurs="1">
+          <xs:element minOccurs="0" maxOccurs="1" ref="mule:abstract-object-streaming-strategy"></xs:element>
+          <xs:element minOccurs="0" maxOccurs="1" ref="mule:abstract-reconnection-strategy"></xs:element>
+        </xs:sequence>
+        <xs:attribute type="mule:expressionInt" use="optional" default="100" name="pageSize">
+          <xs:annotation>
+            <xs:documentation>The number of items to return in one response. The minimum is 1. The maximum is 1000. The default is 100.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="xs:string" use="required" name="config-ref">
+          <xs:annotation>
+            <xs:documentation>The name of the configuration to be used to execute this component</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="xs:string" use="optional" name="target">
+          <xs:annotation>
+            <xs:documentation>The name of a variable on which the operation's output will be placed</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="mule:expressionString" use="optional" default="#[payload]" name="targetValue">
+          <xs:annotation>
+            <xs:documentation>An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element xmlns="http://www.mulesoft.org/schema/mule/tableau-specialist" xmlns:mule="http://www.mulesoft.org/schema/mule/core" type="UpdateProjectType" substitutionGroup="mule:abstract-operator" name="update-project">
+    <xs:annotation>
+      <xs:documentation>Updates a project on the specified site.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="UpdateProjectType">
+    <xs:complexContent>
+      <xs:extension xmlns:mule="http://www.mulesoft.org/schema/mule/core" base="mule:abstractOperatorType">
+        <xs:sequence minOccurs="0" maxOccurs="1">
+          <xs:element minOccurs="0" maxOccurs="1" ref="mule:abstract-byte-streaming-strategy"></xs:element>
+          <xs:element minOccurs="0" maxOccurs="1" ref="mule:abstract-reconnection-strategy"></xs:element>
+          <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="content">
+            <xs:annotation>
+              <xs:documentation>An input stream containing specific attributes for this operation. Check metadata.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute type="mule:expressionString" use="required" name="projectId">
+          <xs:annotation>
+            <xs:documentation>The ID of the project to be updated.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="mule:expressionBoolean" use="optional" default="false" name="publishValue">
+          <xs:annotation>
+            <xs:documentation>A Boolean value that specifies whether to publish the sample workbooks provided by Tableau to the project.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="xs:string" use="required" name="config-ref">
+          <xs:annotation>
+            <xs:documentation>The name of the configuration to be used to execute this component</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="xs:string" use="optional" name="target">
+          <xs:annotation>
+            <xs:documentation>The name of a variable on which the operation's output will be placed</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="mule:expressionString" use="optional" default="#[payload]" name="targetValue">
+          <xs:annotation>
+            <xs:documentation>An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element xmlns="http://www.mulesoft.org/schema/mule/tableau-specialist" xmlns:mule="http://www.mulesoft.org/schema/mule/core" type="UpdateSiteType" substitutionGroup="mule:abstract-operator" name="update-site">
+    <xs:annotation>
+      <xs:documentation>Modifies settings for the site the user is logged in to.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="UpdateSiteType">
+    <xs:complexContent>
+      <xs:extension xmlns:mule="http://www.mulesoft.org/schema/mule/core" base="mule:abstractOperatorType">
+        <xs:sequence minOccurs="0" maxOccurs="1">
+          <xs:element minOccurs="0" maxOccurs="1" ref="mule:abstract-byte-streaming-strategy"></xs:element>
+          <xs:element minOccurs="0" maxOccurs="1" ref="mule:abstract-reconnection-strategy"></xs:element>
+          <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="content">
+            <xs:annotation>
+              <xs:documentation>An input stream containing specific attributes for this operation.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute type="xs:string" use="required" name="config-ref">
+          <xs:annotation>
+            <xs:documentation>The name of the configuration to be used to execute this component</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="xs:string" use="optional" name="target">
+          <xs:annotation>
+            <xs:documentation>The name of a variable on which the operation's output will be placed</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="mule:expressionString" use="optional" default="#[payload]" name="targetValue">
+          <xs:annotation>
+            <xs:documentation>An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element xmlns:mule="http://www.mulesoft.org/schema/mule/core" substitutionGroup="mule:abstract-shared-extension" name="tableau-specialist-config">
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="mule:abstractExtensionType">
+          <xs:annotation>
+            <xs:documentation>This configuration will provide users access to the rest API exposed by Tableau. All the operations that are executed over the rest API will be bound to this configuration.</xs:documentation>
+          </xs:annotation>
+          <xs:sequence minOccurs="1" maxOccurs="1">
+            <xs:element minOccurs="1" maxOccurs="1" ref="mule:abstractConnectionProvider"></xs:element>
+            <xs:element minOccurs="0" maxOccurs="1" ref="mule:expiration-policy"></xs:element>
+          </xs:sequence>
+          <xs:attribute type="mule:expressionInt" use="optional" default="30" name="readTimeout">
+            <xs:annotation>
+              <xs:documentation>Defines the default amount of time, defined in #readTimeoutUnit, to wait for a response when executing an operation.</xs:documentation>
+            </xs:annotation>
+          </xs:attribute>
+          <xs:attribute xmlns="http://www.mulesoft.org/schema/mule/tableau-specialist" type="java.util.concurrent.TimeUnitEnumType" use="optional" default="SECONDS" name="readTimeoutUnit">
+            <xs:annotation>
+              <xs:documentation>A TimeUnit which qualifies the #readTimeout</xs:documentation>
+            </xs:annotation>
+          </xs:attribute>
+          <xs:attribute type="xs:string" use="required" name="name">
+            <xs:annotation>
+              <xs:documentation>The identifier of this element used to reference it in other components</xs:documentation>
+            </xs:annotation>
+          </xs:attribute>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element xmlns:mule="http://www.mulesoft.org/schema/mule/core" substitutionGroup="mule:abstractConnectionProvider" name="basic-username-password-connection">
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="mule:abstractConnectionProviderType">
+          <xs:sequence minOccurs="0" maxOccurs="1">
+            <xs:element minOccurs="0" maxOccurs="1" ref="mule:reconnection"></xs:element>
+            <xs:element xmlns:tls="http://www.mulesoft.org/schema/mule/tls" minOccurs="0" maxOccurs="1" ref="tls:context"></xs:element>
+            <xs:element minOccurs="0" maxOccurs="1" name="proxy-config">
+              <xs:annotation>
+                <xs:documentation>Proxy configuration for the connector.</xs:documentation>
+              </xs:annotation>
+              <xs:complexType>
+                <xs:complexContent>
+                  <xs:extension xmlns:tableau-specialist="http://www.mulesoft.org/schema/mule/tableau-specialist" base="tableau-specialist:com.mulesoft.connector.tableau.api.param.ProxyConfiguration"></xs:extension>
+                </xs:complexContent>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+          <xs:attribute type="xs:string" use="optional" name="tlsContext"></xs:attribute>
+          <xs:attribute type="mule:expressionString" use="required" name="serverUrl">
+            <xs:annotation>
+              <xs:documentation>The URL of the Tableau server.</xs:documentation>
+            </xs:annotation>
+          </xs:attribute>
+          <xs:attribute type="mule:expressionString" use="required" name="apiVersion">
+            <xs:annotation>
+              <xs:documentation>API version.</xs:documentation>
+            </xs:annotation>
+          </xs:attribute>
+          <xs:attribute type="mule:expressionInt" use="optional" default="-1" name="connectionTimeout">
+            <xs:annotation>
+              <xs:documentation>Specifies the amount of time that the consumer will attempt to establish a connection before it times out. Works in tandem with #connectionTimeoutUnit. Values less than one millisecond will be converted to 0.</xs:documentation>
+            </xs:annotation>
+          </xs:attribute>
+          <xs:attribute xmlns="http://www.mulesoft.org/schema/mule/tableau-specialist" type="java.util.concurrent.TimeUnitEnumType" use="optional" default="SECONDS" name="connectionTimeoutUnit">
+            <xs:annotation>
+              <xs:documentation>A TimeUnit which qualifies the #connectionTimeout</xs:documentation>
+            </xs:annotation>
+          </xs:attribute>
+          <xs:attribute type="xs:string" use="optional" name="proxyConfig">
+            <xs:annotation>
+              <xs:documentation>Proxy configuration for the connector.</xs:documentation>
+            </xs:annotation>
+          </xs:attribute>
+          <xs:attribute type="mule:expressionString" use="required" name="username">
+            <xs:annotation>
+              <xs:documentation>Username used to initialize the session.</xs:documentation>
+            </xs:annotation>
+          </xs:attribute>
+          <xs:attribute type="mule:expressionString" use="required" name="password">
+            <xs:annotation>
+              <xs:documentation>Password used to authenticate the user.</xs:documentation>
+            </xs:annotation>
+          </xs:attribute>
+          <xs:attribute type="mule:expressionString" use="required" name="contentUrl">
+            <xs:annotation>
+              <xs:documentation>The content URL (subpath) of the site you are signing in to.</xs:documentation>
+            </xs:annotation>
+          </xs:attribute>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element xmlns:mule="http://www.mulesoft.org/schema/mule/core" substitutionGroup="mule:abstractConnectionProvider" name="pat-connection">
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="mule:abstractConnectionProviderType">
+          <xs:sequence minOccurs="0" maxOccurs="1">
+            <xs:element minOccurs="0" maxOccurs="1" ref="mule:reconnection"></xs:element>
+            <xs:element xmlns:tls="http://www.mulesoft.org/schema/mule/tls" minOccurs="0" maxOccurs="1" ref="tls:context"></xs:element>
+            <xs:element minOccurs="0" maxOccurs="1" name="proxy-config">
+              <xs:annotation>
+                <xs:documentation>Proxy configuration for the connector.</xs:documentation>
+              </xs:annotation>
+              <xs:complexType>
+                <xs:complexContent>
+                  <xs:extension xmlns:tableau-specialist="http://www.mulesoft.org/schema/mule/tableau-specialist" base="tableau-specialist:com.mulesoft.connector.tableau.api.param.ProxyConfiguration"></xs:extension>
+                </xs:complexContent>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+          <xs:attribute type="xs:string" use="optional" name="tlsContext"></xs:attribute>
+          <xs:attribute type="mule:expressionString" use="required" name="serverUrl">
+            <xs:annotation>
+              <xs:documentation>The URL of the Tableau server.</xs:documentation>
+            </xs:annotation>
+          </xs:attribute>
+          <xs:attribute type="mule:expressionString" use="required" name="apiVersion">
+            <xs:annotation>
+              <xs:documentation>API version.</xs:documentation>
+            </xs:annotation>
+          </xs:attribute>
+          <xs:attribute type="mule:expressionInt" use="optional" default="-1" name="connectionTimeout">
+            <xs:annotation>
+              <xs:documentation>Specifies the amount of time that the consumer will attempt to establish a connection before it times out. Works in tandem with #connectionTimeoutUnit. Values less than one millisecond will be converted to 0.</xs:documentation>
+            </xs:annotation>
+          </xs:attribute>
+          <xs:attribute xmlns="http://www.mulesoft.org/schema/mule/tableau-specialist" type="java.util.concurrent.TimeUnitEnumType" use="optional" default="SECONDS" name="connectionTimeoutUnit">
+            <xs:annotation>
+              <xs:documentation>A TimeUnit which qualifies the #connectionTimeout</xs:documentation>
+            </xs:annotation>
+          </xs:attribute>
+          <xs:attribute type="xs:string" use="optional" name="proxyConfig">
+            <xs:annotation>
+              <xs:documentation>Proxy configuration for the connector.</xs:documentation>
+            </xs:annotation>
+          </xs:attribute>
+          <xs:attribute type="mule:expressionString" use="required" name="personalAccessTokenName">
+            <xs:annotation>
+              <xs:documentation>Your personal access token name defined in Tableau server UI. The personal access token name and personal access token secret are mutually exclusive with the username and password fields.</xs:documentation>
+            </xs:annotation>
+          </xs:attribute>
+          <xs:attribute type="mule:expressionString" use="required" name="personalAccessTokenSecret">
+            <xs:annotation>
+              <xs:documentation>Your personal access token secret that was defined in Tableau UI. The personal access token name and personal access token secret are mutually exclusive with the username and password fields.</xs:documentation>
+            </xs:annotation>
+          </xs:attribute>
+          <xs:attribute type="mule:expressionString" use="required" name="contentUrl">
+            <xs:annotation>
+              <xs:documentation>The content URL (subpath) of the site you are signing in to.</xs:documentation>
+            </xs:annotation>
+          </xs:attribute>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element xmlns="http://www.mulesoft.org/schema/mule/tableau-specialist" xmlns:mule="http://www.mulesoft.org/schema/mule/core" type="New-or-modified-datasource-listenerType" substitutionGroup="mule:abstract-message-source" name="new-or-modified-datasource-listener"></xs:element>
+  <xs:complexType name="New-or-modified-datasource-listenerType">
+    <xs:complexContent>
+      <xs:extension xmlns:mule="http://www.mulesoft.org/schema/mule/core" base="mule:abstractMessageSourceType">
+        <xs:sequence minOccurs="1" maxOccurs="1">
+          <xs:element minOccurs="0" maxOccurs="1" ref="mule:abstract-redelivery-policy"></xs:element>
+          <xs:element minOccurs="0" maxOccurs="1" ref="mule:abstract-reconnection-strategy"></xs:element>
+          <xs:element minOccurs="1" maxOccurs="1" ref="mule:scheduling-strategy"></xs:element>
+        </xs:sequence>
+        <xs:attribute type="xs:string" use="optional" name="since"></xs:attribute>
+        <xs:attribute type="xs:string" use="required" name="config-ref">
+          <xs:annotation>
+            <xs:documentation>The name of the configuration to be used to execute this component</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="mule:substitutableBoolean" use="optional" name="primaryNodeOnly">
+          <xs:annotation>
+            <xs:documentation>Whether this source should only be executed on the primary node when runnning in Cluster</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element xmlns="http://www.mulesoft.org/schema/mule/tableau-specialist" xmlns:mule="http://www.mulesoft.org/schema/mule/core" type="AppendToFileUploadType" substitutionGroup="mule:abstract-operator" name="append-to-file-upload">
+    <xs:annotation>
+      <xs:documentation>Uploads a block of data and appends it to the data that is already uploaded.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="AppendToFileUploadType">
+    <xs:complexContent>
+      <xs:extension xmlns:mule="http://www.mulesoft.org/schema/mule/core" base="mule:abstractOperatorType">
+        <xs:sequence minOccurs="0" maxOccurs="1">
+          <xs:element minOccurs="0" maxOccurs="1" ref="mule:abstract-byte-streaming-strategy"></xs:element>
+          <xs:element minOccurs="0" maxOccurs="1" ref="mule:abstract-reconnection-strategy"></xs:element>
+          <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="file-content">
+            <xs:annotation>
+              <xs:documentation>The content of the file to be uploaded is included in a MIME multipart message.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute type="mule:expressionString" use="required" name="uploadSessionId">
+          <xs:annotation>
+            <xs:documentation>The ID of the upload session. You get this value when you start an upload session using Initiate File Upload.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="xs:string" use="required" name="config-ref">
+          <xs:annotation>
+            <xs:documentation>The name of the configuration to be used to execute this component</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="xs:string" use="optional" name="target">
+          <xs:annotation>
+            <xs:documentation>The name of a variable on which the operation's output will be placed</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="mule:expressionString" use="optional" default="#[payload]" name="targetValue">
+          <xs:annotation>
+            <xs:documentation>An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element xmlns="http://www.mulesoft.org/schema/mule/tableau-specialist" xmlns:mule="http://www.mulesoft.org/schema/mule/core" type="CreateProjectType" substitutionGroup="mule:abstract-operator" name="create-project">
+    <xs:annotation>
+      <xs:documentation>Creates a project on the site. You can also create project hierarchies by creating a project under the specified parent project on the site.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="CreateProjectType">
+    <xs:complexContent>
+      <xs:extension xmlns:mule="http://www.mulesoft.org/schema/mule/core" base="mule:abstractOperatorType">
+        <xs:sequence minOccurs="0" maxOccurs="1">
+          <xs:element minOccurs="0" maxOccurs="1" ref="mule:abstract-byte-streaming-strategy"></xs:element>
+          <xs:element minOccurs="0" maxOccurs="1" ref="mule:abstract-reconnection-strategy"></xs:element>
+          <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="content">
+            <xs:annotation>
+              <xs:documentation>An input stream containing specific attributes for this operation. Check metadata.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute type="mule:expressionBoolean" use="optional" default="false" name="publishValue">
+          <xs:annotation>
+            <xs:documentation>A Boolean value that specifies whether to publish the sample workbooks provided by Tableau to the project.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="xs:string" use="required" name="config-ref">
+          <xs:annotation>
+            <xs:documentation>The name of the configuration to be used to execute this component</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="xs:string" use="optional" name="target">
+          <xs:annotation>
+            <xs:documentation>The name of a variable on which the operation's output will be placed</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="mule:expressionString" use="optional" default="#[payload]" name="targetValue">
+          <xs:annotation>
+            <xs:documentation>An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element xmlns="http://www.mulesoft.org/schema/mule/tableau-specialist" xmlns:mule="http://www.mulesoft.org/schema/mule/core" type="DeleteProjectType" substitutionGroup="mule:abstract-operator" name="delete-project">
+    <xs:annotation>
+      <xs:documentation>Delete the specified project on the site. When a project is deleted, all of its assets are also deleted: associated workbooks, data sources, project view options, and rights. Use this method with caution.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="DeleteProjectType">
+    <xs:complexContent>
+      <xs:extension xmlns:mule="http://www.mulesoft.org/schema/mule/core" base="mule:abstractOperatorType">
+        <xs:sequence minOccurs="0" maxOccurs="1">
+          <xs:element minOccurs="0" maxOccurs="1" ref="mule:abstract-byte-streaming-strategy"></xs:element>
+          <xs:element minOccurs="0" maxOccurs="1" ref="mule:abstract-reconnection-strategy"></xs:element>
+        </xs:sequence>
+        <xs:attribute type="mule:expressionString" use="required" name="projectId">
+          <xs:annotation>
+            <xs:documentation>The ID of the project to delete.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="xs:string" use="required" name="config-ref">
+          <xs:annotation>
+            <xs:documentation>The name of the configuration to be used to execute this component</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="xs:string" use="optional" name="target">
+          <xs:annotation>
+            <xs:documentation>The name of a variable on which the operation's output will be placed</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="mule:expressionString" use="optional" default="#[payload]" name="targetValue">
+          <xs:annotation>
+            <xs:documentation>An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element xmlns="http://www.mulesoft.org/schema/mule/tableau-specialist" xmlns:mule="http://www.mulesoft.org/schema/mule/core" type="InitiateFileUploadType" substitutionGroup="mule:abstract-operator" name="initiate-file-upload">
+    <xs:annotation>
+      <xs:documentation>Initiate the upload process for a file.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="InitiateFileUploadType">
+    <xs:complexContent>
+      <xs:extension xmlns:mule="http://www.mulesoft.org/schema/mule/core" base="mule:abstractOperatorType">
+        <xs:sequence minOccurs="0" maxOccurs="1">
+          <xs:element minOccurs="0" maxOccurs="1" ref="mule:abstract-byte-streaming-strategy"></xs:element>
+          <xs:element minOccurs="0" maxOccurs="1" ref="mule:abstract-reconnection-strategy"></xs:element>
+        </xs:sequence>
+        <xs:attribute type="xs:string" use="required" name="config-ref">
+          <xs:annotation>
+            <xs:documentation>The name of the configuration to be used to execute this component</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="xs:string" use="optional" name="target">
+          <xs:annotation>
+            <xs:documentation>The name of a variable on which the operation's output will be placed</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="mule:expressionString" use="optional" default="#[payload]" name="targetValue">
+          <xs:annotation>
+            <xs:documentation>An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element xmlns="http://www.mulesoft.org/schema/mule/tableau-specialist" xmlns:mule="http://www.mulesoft.org/schema/mule/core" type="PublishDatasourceType" substitutionGroup="mule:abstract-operator" name="publish-datasource">
+    <xs:annotation>
+      <xs:documentation>Publishes a data source on the site, or appends data to an existing data source. To make other changes to a published data source, call Update Data Source or Update Data Source Connection. This method is used in two ways. You can call it to publish a data source in a single request. To do that, you include the content of the data source file in the body of the request. The maximum size of a file that can be published in a single request is 64 MB. If you want to avoid having the publishing process time out, you can use the asJob parameter to make data source publication asynchronous. Alternatively, you can publish a data source in multiple parts. To do that, you initiate a file upload by calling Initiate File Upload, send portions of the file to the server using Append to File Upload, and then commit the upload by calling Publish Data Source. In this case, Publish Data Source doesn't contain the file to publish.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="PublishDatasourceType">
+    <xs:complexContent>
+      <xs:extension xmlns:mule="http://www.mulesoft.org/schema/mule/core" base="mule:abstractOperatorType">
+        <xs:sequence minOccurs="0" maxOccurs="1">
+          <xs:element minOccurs="0" maxOccurs="1" ref="mule:abstract-byte-streaming-strategy"></xs:element>
+          <xs:element minOccurs="0" maxOccurs="1" ref="mule:abstract-reconnection-strategy"></xs:element>
+          <xs:element minOccurs="0" maxOccurs="1" name="datasource-request-options">
+            <xs:annotation>
+              <xs:documentation>Datasource object.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:choice minOccurs="1" maxOccurs="1">
+                <xs:element xmlns:tableau-specialist="http://www.mulesoft.org/schema/mule/tableau-specialist" minOccurs="1" maxOccurs="1" ref="tableau-specialist:abstract-publish-datasource-request-option"></xs:element>
+                <xs:element xmlns:tableau-specialist="http://www.mulesoft.org/schema/mule/tableau-specialist" minOccurs="1" maxOccurs="1" ref="tableau-specialist:global-abstract-publish-datasource-request-option"></xs:element>
+              </xs:choice>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute type="mule:expressionBoolean" use="optional" default="false" name="overwriteFlag">
+          <xs:annotation>
+            <xs:documentation>True to overwrite a data source that has the same name, or false to fail if the specified data source already exists.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="mule:expressionBoolean" use="optional" default="false" name="asJobValue">
+          <xs:annotation>
+            <xs:documentation>A Boolean value that is used to publish data sources asynchronously.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="mule:expressionBoolean" use="optional" default="false" name="appendFlag">
+          <xs:annotation>
+            <xs:documentation>True to append the data being published to an existing data source that has the same name. The default is false. If append-flag is set to true but the data source doesn't already exist, the operation fails.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="xs:string" use="optional" name="datasourceRequestOptions">
+          <xs:annotation>
+            <xs:documentation>Datasource object.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="xs:string" use="required" name="config-ref">
+          <xs:annotation>
+            <xs:documentation>The name of the configuration to be used to execute this component</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="xs:string" use="optional" name="target">
+          <xs:annotation>
+            <xs:documentation>The name of a variable on which the operation's output will be placed</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="mule:expressionString" use="optional" default="#[payload]" name="targetValue">
+          <xs:annotation>
+            <xs:documentation>An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element xmlns="http://www.mulesoft.org/schema/mule/tableau-specialist" xmlns:mule="http://www.mulesoft.org/schema/mule/core" type="PublishWorkbookType" substitutionGroup="mule:abstract-operator" name="publish-workbook">
+    <xs:annotation>
+      <xs:documentation>Publishes a workbook on the site. To make changes to a published workbook, call Update Workbook or Update Workbook Connection. This method is used in two ways. You can call it to publish a workbook in a single request. To do that, you include the content of the workbook file in the body of the request. The maximum size of a file that can be published in a single request is 64 MB. If you want to avoid having the publishing process time out, you can use the asJob parameter to make workbook publication asynchronous. Alternatively, you can publish a workbook in multiple parts. To do that, you initiate a file upload by calling Initiate File Upload, send portions of the file to the server using Append to File Upload, and then commit the upload by calling Publish Workbook. In this case, Publish Workbook doesn't contain the file to publish.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="PublishWorkbookType">
+    <xs:complexContent>
+      <xs:extension xmlns:mule="http://www.mulesoft.org/schema/mule/core" base="mule:abstractOperatorType">
+        <xs:sequence minOccurs="0" maxOccurs="1">
+          <xs:element minOccurs="0" maxOccurs="1" ref="mule:abstract-byte-streaming-strategy"></xs:element>
+          <xs:element minOccurs="0" maxOccurs="1" ref="mule:abstract-reconnection-strategy"></xs:element>
+          <xs:element minOccurs="0" maxOccurs="1" name="workbook-request-options">
+            <xs:annotation>
+              <xs:documentation>Workbook object.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:choice minOccurs="1" maxOccurs="1">
+                <xs:element xmlns:tableau-specialist="http://www.mulesoft.org/schema/mule/tableau-specialist" minOccurs="1" maxOccurs="1" ref="tableau-specialist:abstract-publish-workbook-request-option"></xs:element>
+                <xs:element xmlns:tableau-specialist="http://www.mulesoft.org/schema/mule/tableau-specialist" minOccurs="1" maxOccurs="1" ref="tableau-specialist:global-abstract-publish-workbook-request-option"></xs:element>
+              </xs:choice>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute type="mule:expressionBoolean" use="optional" default="false" name="overwriteFlag">
+          <xs:annotation>
+            <xs:documentation>True to overwrite a data source that has the same name, or false to fail if the specified data source already exists.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="mule:expressionBoolean" use="optional" default="false" name="asJobValue">
+          <xs:annotation>
+            <xs:documentation>A Boolean value that is used to publish data sources asynchronously.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="mule:expressionBoolean" use="optional" default="false" name="skipConnectionCheckFlag">
+          <xs:annotation>
+            <xs:documentation>If true, then the Tableau server will not check if a non-published connection of a workbook is reachable. Publishing will succeed but unchecked connection issues may result in a non-functioning workbook.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="xs:string" use="optional" name="workbookRequestOptions">
+          <xs:annotation>
+            <xs:documentation>Workbook object.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="xs:string" use="required" name="config-ref">
+          <xs:annotation>
+            <xs:documentation>The name of the configuration to be used to execute this component</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="xs:string" use="optional" name="target">
+          <xs:annotation>
+            <xs:documentation>The name of a variable on which the operation's output will be placed</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="mule:expressionString" use="optional" default="#[payload]" name="targetValue">
+          <xs:annotation>
+            <xs:documentation>An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element xmlns="http://www.mulesoft.org/schema/mule/tableau-specialist" xmlns:mule="http://www.mulesoft.org/schema/mule/core" type="QueryProjectsType" substitutionGroup="mule:abstract-operator" name="query-projects">
+    <xs:annotation>
+      <xs:documentation>Returns a list of projects on the specified site, with optional parameters for specifying the paging of large results.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="QueryProjectsType">
+    <xs:complexContent>
+      <xs:extension xmlns:mule="http://www.mulesoft.org/schema/mule/core" base="mule:abstractOperatorType">
+        <xs:sequence minOccurs="0" maxOccurs="1">
+          <xs:element minOccurs="0" maxOccurs="1" ref="mule:abstract-object-streaming-strategy"></xs:element>
+          <xs:element minOccurs="0" maxOccurs="1" ref="mule:abstract-reconnection-strategy"></xs:element>
+          <xs:element minOccurs="0" maxOccurs="1" name="filter-expressions">
+            <xs:annotation>
+              <xs:documentation>An expression that lets you specify a subset of data sources to return.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element xmlns:tableau-specialist="http://www.mulesoft.org/schema/mule/tableau-specialist" minOccurs="0" maxOccurs="unbounded" ref="tableau-specialist:abstract-filter-expression"></xs:element>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" maxOccurs="1" name="sort-expressions">
+            <xs:annotation>
+              <xs:documentation>An expression that lets you specify the order in which user information is returned.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element xmlns:tableau-specialist="http://www.mulesoft.org/schema/mule/tableau-specialist" minOccurs="0" maxOccurs="unbounded" ref="tableau-specialist:abstract-sort-expression"></xs:element>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute type="mule:expressionInt" use="optional" default="100" name="pageSize">
+          <xs:annotation>
+            <xs:documentation>The number of items to return in one response. The minimum is 1. The maximum is 1000. The default is 100.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="mule:expressionList" use="optional" name="filterExpressions">
+          <xs:annotation>
+            <xs:documentation>An expression that lets you specify a subset of data sources to return.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="mule:expressionList" use="optional" name="sortExpressions">
+          <xs:annotation>
+            <xs:documentation>An expression that lets you specify the order in which user information is returned.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="xs:string" use="required" name="config-ref">
+          <xs:annotation>
+            <xs:documentation>The name of the configuration to be used to execute this component</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="xs:string" use="optional" name="target">
+          <xs:annotation>
+            <xs:documentation>The name of a variable on which the operation's output will be placed</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="mule:expressionString" use="optional" default="#[payload]" name="targetValue">
+          <xs:annotation>
+            <xs:documentation>An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element xmlns="http://www.mulesoft.org/schema/mule/tableau-specialist" xmlns:mule="http://www.mulesoft.org/schema/mule/core" type="UpdateProjectType" substitutionGroup="mule:abstract-operator" name="update-project">
+    <xs:annotation>
+      <xs:documentation>Updates a project on the specified site.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="UpdateProjectType">
+    <xs:complexContent>
+      <xs:extension xmlns:mule="http://www.mulesoft.org/schema/mule/core" base="mule:abstractOperatorType">
+        <xs:sequence minOccurs="0" maxOccurs="1">
+          <xs:element minOccurs="0" maxOccurs="1" ref="mule:abstract-byte-streaming-strategy"></xs:element>
+          <xs:element minOccurs="0" maxOccurs="1" ref="mule:abstract-reconnection-strategy"></xs:element>
+          <xs:element type="xs:string" minOccurs="0" maxOccurs="1" name="content">
+            <xs:annotation>
+              <xs:documentation>An input stream containing specific attributes for this operation. Check metadata.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute type="mule:expressionString" use="required" name="projectId">
+          <xs:annotation>
+            <xs:documentation>The ID of the project to be updated.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="mule:expressionBoolean" use="optional" default="false" name="publishValue">
+          <xs:annotation>
+            <xs:documentation>A Boolean value that specifies whether to publish the sample workbooks provided by Tableau to the project.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="xs:string" use="required" name="config-ref">
+          <xs:annotation>
+            <xs:documentation>The name of the configuration to be used to execute this component</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="xs:string" use="optional" name="target">
+          <xs:annotation>
+            <xs:documentation>The name of a variable on which the operation's output will be placed</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="mule:expressionString" use="optional" default="#[payload]" name="targetValue">
+          <xs:annotation>
+            <xs:documentation>An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:simpleType name="com.mulesoft.connector.tableau.api.param.PublishWorkbookTypeEnumType">
+    <xs:union>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="TWB"></xs:enumeration>
+          <xs:enumeration value="TWBX"></xs:enumeration>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType>
+        <xs:restriction xmlns:mule="http://www.mulesoft.org/schema/mule/core" base="mule:propertyPlaceholderType"></xs:restriction>
+      </xs:simpleType>
+    </xs:union>
+  </xs:simpleType>
+  <xs:simpleType name="com.mulesoft.connector.tableau.api.param.PublishDatasourceTypeEnumType">
+    <xs:union>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="HYPER"></xs:enumeration>
+          <xs:enumeration value="TDS"></xs:enumeration>
+          <xs:enumeration value="TDSX"></xs:enumeration>
+          <xs:enumeration value="TDE"></xs:enumeration>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType>
+        <xs:restriction xmlns:mule="http://www.mulesoft.org/schema/mule/core" base="mule:propertyPlaceholderType"></xs:restriction>
+      </xs:simpleType>
+    </xs:union>
+  </xs:simpleType>
+  <xs:simpleType name="com.mulesoft.connector.tableau.api.param.TableauTelemetryEnumType">
+    <xs:union>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="SEND_USAGE_DATA_TO_TABLEAU"></xs:enumeration>
+          <xs:enumeration value="DO_NOT_SEND_USAGE_DATA_TO_TABLEAU"></xs:enumeration>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType>
+        <xs:restriction xmlns:mule="http://www.mulesoft.org/schema/mule/core" base="mule:propertyPlaceholderType"></xs:restriction>
+      </xs:simpleType>
+    </xs:union>
+  </xs:simpleType>
+  <xs:simpleType name="com.mulesoft.connector.tableau.api.param.HyperSqlTypeEnumType">
+    <xs:union>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="UNSUPPORTED"></xs:enumeration>
+          <xs:enumeration value="BOOL"></xs:enumeration>
+          <xs:enumeration value="BIG_INT"></xs:enumeration>
+          <xs:enumeration value="SMALL_INT"></xs:enumeration>
+          <xs:enumeration value="INT"></xs:enumeration>
+          <xs:enumeration value="NUMERIC"></xs:enumeration>
+          <xs:enumeration value="DOUBLE"></xs:enumeration>
+          <xs:enumeration value="OID"></xs:enumeration>
+          <xs:enumeration value="BYTES"></xs:enumeration>
+          <xs:enumeration value="TEXT"></xs:enumeration>
+          <xs:enumeration value="VARCHAR"></xs:enumeration>
+          <xs:enumeration value="CHAR"></xs:enumeration>
+          <xs:enumeration value="JSON"></xs:enumeration>
+          <xs:enumeration value="DATE"></xs:enumeration>
+          <xs:enumeration value="INTERVAL"></xs:enumeration>
+          <xs:enumeration value="TIME"></xs:enumeration>
+          <xs:enumeration value="TIMESTAMP"></xs:enumeration>
+          <xs:enumeration value="TIMESTAMP_TZ"></xs:enumeration>
+          <xs:enumeration value="GEOGRAPHY"></xs:enumeration>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType>
+        <xs:restriction xmlns:mule="http://www.mulesoft.org/schema/mule/core" base="mule:propertyPlaceholderType"></xs:restriction>
+      </xs:simpleType>
+    </xs:union>
+  </xs:simpleType>
+  <xs:simpleType name="com.mulesoft.connector.tableau.api.param.HyperSqlNullabilityEnumType">
+    <xs:union>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="NULLABLE"></xs:enumeration>
+          <xs:enumeration value="NOT_NULLABLE"></xs:enumeration>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType>
+        <xs:restriction xmlns:mule="http://www.mulesoft.org/schema/mule/core" base="mule:propertyPlaceholderType"></xs:restriction>
+      </xs:simpleType>
+    </xs:union>
+  </xs:simpleType>
+  <xs:simpleType name="java.util.concurrent.TimeUnitEnumType">
+    <xs:union>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="NANOSECONDS"></xs:enumeration>
+          <xs:enumeration value="MICROSECONDS"></xs:enumeration>
+          <xs:enumeration value="MILLISECONDS"></xs:enumeration>
+          <xs:enumeration value="SECONDS"></xs:enumeration>
+          <xs:enumeration value="MINUTES"></xs:enumeration>
+          <xs:enumeration value="HOURS"></xs:enumeration>
+          <xs:enumeration value="DAYS"></xs:enumeration>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType>
+        <xs:restriction xmlns:mule="http://www.mulesoft.org/schema/mule/core" base="mule:propertyPlaceholderType"></xs:restriction>
+      </xs:simpleType>
+    </xs:union>
+  </xs:simpleType>
+  <xs:simpleType name="com.mulesoft.connector.tableau.api.param.DirectionEnumType">
+    <xs:union>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="ASC"></xs:enumeration>
+          <xs:enumeration value="DESC"></xs:enumeration>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType>
+        <xs:restriction xmlns:mule="http://www.mulesoft.org/schema/mule/core" base="mule:propertyPlaceholderType"></xs:restriction>
+      </xs:simpleType>
+    </xs:union>
+  </xs:simpleType>
+</xs:schema>

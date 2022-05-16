@@ -1,0 +1,1076 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<extension-documentation>
+    <configs>
+        <config name="tableau-hyper-config">
+            <description><![CDATA[This configuration will provide users access to the HyperAPI Java library developed by Tableau. Users will be allowed to create, update, delete, modify hyper files locally.]]></description>
+            <parameters>
+                <parameter name="name">
+                    <description><![CDATA[The identifier of this element used to reference it in other components]]></description>
+                </parameter>
+                <parameter name="expirationPolicy">
+                    <description><![CDATA[Configures the minimum amount of time that a dynamic configuration instance can remain idle before the runtime considers it eligible for expiration. This does not mean that the platform will expire the instance at the exact moment that it becomes eligible. The runtime will actually purge the instances when it sees it fit.]]></description>
+                </parameter>
+            </parameters>
+        </config>
+        <config name="tableau-server-specialist-config">
+            <description><![CDATA[This configuration will provide users access to the rest API exposed by Tableau. All the operations that are executed over the rest API will be bound to this configuration.]]></description>
+            <parameters>
+                <parameter name="readTimeout">
+                    <description><![CDATA[Defines the default amount of time, defined in #readTimeoutUnit, to wait for a response when executing an operation.]]></description>
+                </parameter>
+                <parameter name="readTimeoutUnit">
+                    <description><![CDATA[A TimeUnit which qualifies the #readTimeout]]></description>
+                </parameter>
+                <parameter name="name">
+                    <description><![CDATA[The identifier of this element used to reference it in other components]]></description>
+                </parameter>
+                <parameter name="expirationPolicy">
+                    <description><![CDATA[Configures the minimum amount of time that a dynamic configuration instance can remain idle before the runtime considers it eligible for expiration. This does not mean that the platform will expire the instance at the exact moment that it becomes eligible. The runtime will actually purge the instances when it sees it fit.]]></description>
+                </parameter>
+            </parameters>
+        </config>
+        <config name="tableau-specialist-config">
+            <description><![CDATA[This configuration will provide users access to the rest API exposed by Tableau. All the operations that are executed over the rest API will be bound to this configuration.]]></description>
+            <parameters>
+                <parameter name="readTimeout">
+                    <description><![CDATA[Defines the default amount of time, defined in #readTimeoutUnit, to wait for a response when executing an operation.]]></description>
+                </parameter>
+                <parameter name="readTimeoutUnit">
+                    <description><![CDATA[A TimeUnit which qualifies the #readTimeout]]></description>
+                </parameter>
+                <parameter name="name">
+                    <description><![CDATA[The identifier of this element used to reference it in other components]]></description>
+                </parameter>
+                <parameter name="expirationPolicy">
+                    <description><![CDATA[Configures the minimum amount of time that a dynamic configuration instance can remain idle before the runtime considers it eligible for expiration. This does not mean that the platform will expire the instance at the exact moment that it becomes eligible. The runtime will actually purge the instances when it sees it fit.]]></description>
+                </parameter>
+            </parameters>
+        </config>
+    </configs>
+    <connections>
+        <connection name="connection">
+            <description><![CDATA[]]></description>
+            <parameters>
+                <parameter name="workingDir">
+                    <description><![CDATA[The directory to be considered as the root of every relative path used with this connector. If not provided, it will default to the value of the user.home system property. If that system property is not set, then the connector will fail to initialise.]]></description>
+                </parameter>
+                <parameter name="hyperdDir">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="telemetry">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="reconnection">
+                    <description><![CDATA[When the application is deployed, a connectivity test is performed on all connectors. If set to true, deployment will fail if the test doesn't pass after exhausting the associated reconnection strategy]]></description>
+                </parameter>
+            </parameters>
+        </connection>
+        <connection name="tableau-server-basic-username-password">
+            <description><![CDATA[]]></description>
+            <parameters>
+                <parameter name="serverUrl">
+                    <description><![CDATA[The URL of the Tableau server.]]></description>
+                </parameter>
+                <parameter name="apiVersion">
+                    <description><![CDATA[API version.]]></description>
+                </parameter>
+                <parameter name="connectionTimeout">
+                    <description><![CDATA[Specifies the amount of time that the consumer will attempt to establish a connection before it times out. Works in tandem with #connectionTimeoutUnit. Values less than one millisecond will be converted to 0.]]></description>
+                </parameter>
+                <parameter name="connectionTimeoutUnit">
+                    <description><![CDATA[A TimeUnit which qualifies the #connectionTimeout]]></description>
+                </parameter>
+                <parameter name="tlsContext">
+                    <description><![CDATA[Protocol to use for communication. Valid values are HTTP and HTTPS. Default value is HTTP. When using HTTPS the HTTP communication is going to be secured using TLS / SSL. If HTTPS was configured as protocol then the user needs to configure at least the keystore in the tls:context child element of this listener-config.]]></description>
+                </parameter>
+                <parameter name="proxyConfig">
+                    <description><![CDATA[Proxy configuration for the connector.]]></description>
+                </parameter>
+                <parameter name="username">
+                    <description><![CDATA[Username used to initialize the session.]]></description>
+                </parameter>
+                <parameter name="password">
+                    <description><![CDATA[Password used to authenticate the user.]]></description>
+                </parameter>
+                <parameter name="contentUrl">
+                    <description><![CDATA[The content URL (subpath) of the site you are signing in to.]]></description>
+                </parameter>
+                <parameter name="reconnection">
+                    <description><![CDATA[When the application is deployed, a connectivity test is performed on all connectors. If set to true, deployment will fail if the test doesn't pass after exhausting the associated reconnection strategy]]></description>
+                </parameter>
+            </parameters>
+        </connection>
+        <connection name="tableau-server-pat">
+            <description><![CDATA[Personal access tokens provide Tableau Server users the ability to create long-lived authentication tokens. After the authorization token is obtained it must be sent with each subsequent request in the X-Tableau-Auth header.]]></description>
+            <parameters>
+                <parameter name="serverUrl">
+                    <description><![CDATA[The URL of the Tableau server.]]></description>
+                </parameter>
+                <parameter name="apiVersion">
+                    <description><![CDATA[API version.]]></description>
+                </parameter>
+                <parameter name="connectionTimeout">
+                    <description><![CDATA[Specifies the amount of time that the consumer will attempt to establish a connection before it times out. Works in tandem with #connectionTimeoutUnit. Values less than one millisecond will be converted to 0.]]></description>
+                </parameter>
+                <parameter name="connectionTimeoutUnit">
+                    <description><![CDATA[A TimeUnit which qualifies the #connectionTimeout]]></description>
+                </parameter>
+                <parameter name="tlsContext">
+                    <description><![CDATA[Protocol to use for communication. Valid values are HTTP and HTTPS. Default value is HTTP. When using HTTPS the HTTP communication is going to be secured using TLS / SSL. If HTTPS was configured as protocol then the user needs to configure at least the keystore in the tls:context child element of this listener-config.]]></description>
+                </parameter>
+                <parameter name="proxyConfig">
+                    <description><![CDATA[Proxy configuration for the connector.]]></description>
+                </parameter>
+                <parameter name="personalAccessTokenName">
+                    <description><![CDATA[Your personal access token name defined in Tableau server UI. The personal access token name and personal access token secret are mutually exclusive with the username and password fields.]]></description>
+                </parameter>
+                <parameter name="personalAccessTokenSecret">
+                    <description><![CDATA[Your personal access token secret that was defined in Tableau UI. The personal access token name and personal access token secret are mutually exclusive with the username and password fields.]]></description>
+                </parameter>
+                <parameter name="contentUrl">
+                    <description><![CDATA[The content URL (subpath) of the site you are signing in to.]]></description>
+                </parameter>
+                <parameter name="reconnection">
+                    <description><![CDATA[When the application is deployed, a connectivity test is performed on all connectors. If set to true, deployment will fail if the test doesn't pass after exhausting the associated reconnection strategy]]></description>
+                </parameter>
+            </parameters>
+        </connection>
+        <connection name="basic-username-password">
+            <description><![CDATA[]]></description>
+            <parameters>
+                <parameter name="serverUrl">
+                    <description><![CDATA[The URL of the Tableau server.]]></description>
+                </parameter>
+                <parameter name="apiVersion">
+                    <description><![CDATA[API version.]]></description>
+                </parameter>
+                <parameter name="connectionTimeout">
+                    <description><![CDATA[Specifies the amount of time that the consumer will attempt to establish a connection before it times out. Works in tandem with #connectionTimeoutUnit. Values less than one millisecond will be converted to 0.]]></description>
+                </parameter>
+                <parameter name="connectionTimeoutUnit">
+                    <description><![CDATA[A TimeUnit which qualifies the #connectionTimeout]]></description>
+                </parameter>
+                <parameter name="tlsContext">
+                    <description><![CDATA[Protocol to use for communication. Valid values are HTTP and HTTPS. Default value is HTTP. When using HTTPS the HTTP communication is going to be secured using TLS / SSL. If HTTPS was configured as protocol then the user needs to configure at least the keystore in the tls:context child element of this listener-config.]]></description>
+                </parameter>
+                <parameter name="proxyConfig">
+                    <description><![CDATA[Proxy configuration for the connector.]]></description>
+                </parameter>
+                <parameter name="username">
+                    <description><![CDATA[Username used to initialize the session.]]></description>
+                </parameter>
+                <parameter name="password">
+                    <description><![CDATA[Password used to authenticate the user.]]></description>
+                </parameter>
+                <parameter name="contentUrl">
+                    <description><![CDATA[The content URL (subpath) of the site you are signing in to.]]></description>
+                </parameter>
+                <parameter name="reconnection">
+                    <description><![CDATA[When the application is deployed, a connectivity test is performed on all connectors. If set to true, deployment will fail if the test doesn't pass after exhausting the associated reconnection strategy]]></description>
+                </parameter>
+            </parameters>
+        </connection>
+        <connection name="pat">
+            <description><![CDATA[Personal access tokens provide Tableau Server users the ability to create long-lived authentication tokens. After the authorization token is obtained it must be sent with each subsequent request in the X-Tableau-Auth header.]]></description>
+            <parameters>
+                <parameter name="serverUrl">
+                    <description><![CDATA[The URL of the Tableau server.]]></description>
+                </parameter>
+                <parameter name="apiVersion">
+                    <description><![CDATA[API version.]]></description>
+                </parameter>
+                <parameter name="connectionTimeout">
+                    <description><![CDATA[Specifies the amount of time that the consumer will attempt to establish a connection before it times out. Works in tandem with #connectionTimeoutUnit. Values less than one millisecond will be converted to 0.]]></description>
+                </parameter>
+                <parameter name="connectionTimeoutUnit">
+                    <description><![CDATA[A TimeUnit which qualifies the #connectionTimeout]]></description>
+                </parameter>
+                <parameter name="tlsContext">
+                    <description><![CDATA[Protocol to use for communication. Valid values are HTTP and HTTPS. Default value is HTTP. When using HTTPS the HTTP communication is going to be secured using TLS / SSL. If HTTPS was configured as protocol then the user needs to configure at least the keystore in the tls:context child element of this listener-config.]]></description>
+                </parameter>
+                <parameter name="proxyConfig">
+                    <description><![CDATA[Proxy configuration for the connector.]]></description>
+                </parameter>
+                <parameter name="personalAccessTokenName">
+                    <description><![CDATA[Your personal access token name defined in Tableau server UI. The personal access token name and personal access token secret are mutually exclusive with the username and password fields.]]></description>
+                </parameter>
+                <parameter name="personalAccessTokenSecret">
+                    <description><![CDATA[Your personal access token secret that was defined in Tableau UI. The personal access token name and personal access token secret are mutually exclusive with the username and password fields.]]></description>
+                </parameter>
+                <parameter name="contentUrl">
+                    <description><![CDATA[The content URL (subpath) of the site you are signing in to.]]></description>
+                </parameter>
+                <parameter name="reconnection">
+                    <description><![CDATA[When the application is deployed, a connectivity test is performed on all connectors. If set to true, deployment will fail if the test doesn't pass after exhausting the associated reconnection strategy]]></description>
+                </parameter>
+            </parameters>
+        </connection>
+    </connections>
+    <extension name="Tableau Specialist">
+        <description><![CDATA[]]></description>
+        <parameters/>
+    </extension>
+    <operations>
+        <operation name="createHyperFile">
+            <description><![CDATA[Creates an empty hyper file based on the column definition provided by the user.]]></description>
+            <parameters>
+                <parameter name="hyperFileName">
+                    <description><![CDATA[The name of the hyper file that will be created.]]></description>
+                </parameter>
+                <parameter name="schemaName">
+                    <description><![CDATA[The name of the schema where the table will be created.]]></description>
+                </parameter>
+                <parameter name="tableName">
+                    <description><![CDATA[The name of the table.]]></description>
+                </parameter>
+                <parameter name="columns">
+                    <description><![CDATA[A list of the columns that will be defined in the table.]]></description>
+                </parameter>
+                <parameter name="config-ref">
+                    <description><![CDATA[The name of the configuration to be used to execute this component]]></description>
+                </parameter>
+                <parameter name="reconnectionStrategy">
+                    <description><![CDATA[A retry strategy in case of connectivity errors]]></description>
+                </parameter>
+            </parameters>
+        </operation>
+        <operation name="insertDataToHyperFile">
+            <description><![CDATA[Inserts data into a table belonging to a hyper file.]]></description>
+            <parameters>
+                <parameter name="hyperFileName">
+                    <description><![CDATA[The name of the hyper file where to insert data.]]></description>
+                </parameter>
+                <parameter name="insertCommand">
+                    <description><![CDATA[The SQL command to be used in order to insert the data in the table from hyper file.]]></description>
+                </parameter>
+                <parameter name="config-ref">
+                    <description><![CDATA[The name of the configuration to be used to execute this component]]></description>
+                </parameter>
+                <parameter name="target">
+                    <description><![CDATA[The name of a variable on which the operation's output will be placed]]></description>
+                </parameter>
+                <parameter name="targetValue">
+                    <description><![CDATA[An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable]]></description>
+                </parameter>
+                <parameter name="reconnectionStrategy">
+                    <description><![CDATA[A retry strategy in case of connectivity errors]]></description>
+                </parameter>
+            </parameters>
+        </operation>
+        <operation name="insertDataToHyperFileFromCsv">
+            <description><![CDATA[Populates a hyper file from an existing CSV document.]]></description>
+            <parameters>
+                <parameter name="hyperFileName">
+                    <description><![CDATA[The name of the hyper file.]]></description>
+                </parameter>
+                <parameter name="schemaName">
+                    <description><![CDATA[The name of the schema.]]></description>
+                </parameter>
+                <parameter name="tableName">
+                    <description><![CDATA[The name of the table.]]></description>
+                </parameter>
+                <parameter name="columns">
+                    <description><![CDATA[A list of the columns that will be defined in the table.]]></description>
+                </parameter>
+                <parameter name="csvFilePath">
+                    <description><![CDATA[The path to the csv file.]]></description>
+                </parameter>
+                <parameter name="csvNullColumn">
+                    <description><![CDATA[A parameter that defines what the csv file is using to represent NULL values.]]></description>
+                </parameter>
+                <parameter name="csvDelimiter">
+                    <description><![CDATA[A parameter that defines what the csv file is using as a delimiter.]]></description>
+                </parameter>
+                <parameter name="csvHeader">
+                    <description><![CDATA[A Boolean value that specifies whether the csv file contains a header.]]></description>
+                </parameter>
+                <parameter name="config-ref">
+                    <description><![CDATA[The name of the configuration to be used to execute this component]]></description>
+                </parameter>
+                <parameter name="target">
+                    <description><![CDATA[The name of a variable on which the operation's output will be placed]]></description>
+                </parameter>
+                <parameter name="targetValue">
+                    <description><![CDATA[An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable]]></description>
+                </parameter>
+                <parameter name="reconnectionStrategy">
+                    <description><![CDATA[A retry strategy in case of connectivity errors]]></description>
+                </parameter>
+            </parameters>
+        </operation>
+        <operation name="queryDataFromHyperFile">
+            <description><![CDATA[Queries data from tables belonging to a hyper file.]]></description>
+            <parameters>
+                <parameter name="config-ref">
+                    <description><![CDATA[The name of the configuration to be used to execute this component]]></description>
+                </parameter>
+                <parameter name="hyperFileName">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="query">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="target">
+                    <description><![CDATA[The name of a variable on which the operation's output will be placed]]></description>
+                </parameter>
+                <parameter name="targetValue">
+                    <description><![CDATA[An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable]]></description>
+                </parameter>
+                <parameter name="reconnectionStrategy">
+                    <description><![CDATA[A retry strategy in case of connectivity errors]]></description>
+                </parameter>
+            </parameters>
+        </operation>
+        <operation name="updateDataFromHyperFile">
+            <description><![CDATA[Update data from tables in an .hyper file by sending SQL queries.]]></description>
+            <parameters>
+                <parameter name="hyperFileName">
+                    <description><![CDATA[The name of the hyper file that will be updated.]]></description>
+                </parameter>
+                <parameter name="updateCommand">
+                    <description><![CDATA[The SQL command to be used in order to update the data in the table from hyper file.]]></description>
+                </parameter>
+                <parameter name="config-ref">
+                    <description><![CDATA[The name of the configuration to be used to execute this component]]></description>
+                </parameter>
+                <parameter name="target">
+                    <description><![CDATA[The name of a variable on which the operation's output will be placed]]></description>
+                </parameter>
+                <parameter name="targetValue">
+                    <description><![CDATA[An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable]]></description>
+                </parameter>
+                <parameter name="reconnectionStrategy">
+                    <description><![CDATA[A retry strategy in case of connectivity errors]]></description>
+                </parameter>
+            </parameters>
+        </operation>
+        <operation name="appendToFileUpload">
+            <description><![CDATA[Uploads a block of data and appends it to the data that is already uploaded.]]></description>
+            <parameters>
+                <parameter name="fileContent">
+                    <description><![CDATA[The content of the file to be uploaded is included in a MIME multipart message.]]></description>
+                </parameter>
+                <parameter name="uploadSessionId">
+                    <description><![CDATA[The ID of the upload session. You get this value when you start an upload session using Initiate File Upload.]]></description>
+                </parameter>
+                <parameter name="config-ref">
+                    <description><![CDATA[The name of the configuration to be used to execute this component]]></description>
+                </parameter>
+                <parameter name="streamingStrategy">
+                    <description><![CDATA[Configure if repeatable streams should be used and their behaviour]]></description>
+                </parameter>
+                <parameter name="target">
+                    <description><![CDATA[The name of a variable on which the operation's output will be placed]]></description>
+                </parameter>
+                <parameter name="targetValue">
+                    <description><![CDATA[An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable]]></description>
+                </parameter>
+                <parameter name="reconnectionStrategy">
+                    <description><![CDATA[A retry strategy in case of connectivity errors]]></description>
+                </parameter>
+            </parameters>
+        </operation>
+        <operation name="createProject">
+            <description><![CDATA[Creates a project on the site. You can also create project hierarchies by creating a project under the specified parent project on the site.]]></description>
+            <parameters>
+                <parameter name="publishValue">
+                    <description><![CDATA[A Boolean value that specifies whether to publish the sample workbooks provided by Tableau to the project.]]></description>
+                </parameter>
+                <parameter name="content">
+                    <description><![CDATA[An input stream containing specific attributes for this operation. Check metadata.]]></description>
+                </parameter>
+                <parameter name="config-ref">
+                    <description><![CDATA[The name of the configuration to be used to execute this component]]></description>
+                </parameter>
+                <parameter name="streamingStrategy">
+                    <description><![CDATA[Configure if repeatable streams should be used and their behaviour]]></description>
+                </parameter>
+                <parameter name="target">
+                    <description><![CDATA[The name of a variable on which the operation's output will be placed]]></description>
+                </parameter>
+                <parameter name="targetValue">
+                    <description><![CDATA[An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable]]></description>
+                </parameter>
+                <parameter name="reconnectionStrategy">
+                    <description><![CDATA[A retry strategy in case of connectivity errors]]></description>
+                </parameter>
+            </parameters>
+        </operation>
+        <operation name="createSite">
+            <description><![CDATA[Creates a site on Tableau Server.]]></description>
+            <parameters>
+                <parameter name="content">
+                    <description><![CDATA[An input stream containing specific attributes for this operation. Check metadata.]]></description>
+                </parameter>
+                <parameter name="config-ref">
+                    <description><![CDATA[The name of the configuration to be used to execute this component]]></description>
+                </parameter>
+                <parameter name="streamingStrategy">
+                    <description><![CDATA[Configure if repeatable streams should be used and their behaviour]]></description>
+                </parameter>
+                <parameter name="target">
+                    <description><![CDATA[The name of a variable on which the operation's output will be placed]]></description>
+                </parameter>
+                <parameter name="targetValue">
+                    <description><![CDATA[An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable]]></description>
+                </parameter>
+                <parameter name="reconnectionStrategy">
+                    <description><![CDATA[A retry strategy in case of connectivity errors]]></description>
+                </parameter>
+            </parameters>
+        </operation>
+        <operation name="deleteProject">
+            <description><![CDATA[Delete the specified project on the site. When a project is deleted, all of its assets are also deleted: associated workbooks, data sources, project view options, and rights. Use this method with caution.]]></description>
+            <parameters>
+                <parameter name="projectId">
+                    <description><![CDATA[The ID of the project to delete.]]></description>
+                </parameter>
+                <parameter name="config-ref">
+                    <description><![CDATA[The name of the configuration to be used to execute this component]]></description>
+                </parameter>
+                <parameter name="streamingStrategy">
+                    <description><![CDATA[Configure if repeatable streams should be used and their behaviour]]></description>
+                </parameter>
+                <parameter name="target">
+                    <description><![CDATA[The name of a variable on which the operation's output will be placed]]></description>
+                </parameter>
+                <parameter name="targetValue">
+                    <description><![CDATA[An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable]]></description>
+                </parameter>
+                <parameter name="reconnectionStrategy">
+                    <description><![CDATA[A retry strategy in case of connectivity errors]]></description>
+                </parameter>
+            </parameters>
+        </operation>
+        <operation name="deleteSite">
+            <description><![CDATA[Deletes the site the user is logged in to.]]></description>
+            <parameters>
+                <parameter name="config-ref">
+                    <description><![CDATA[The name of the configuration to be used to execute this component]]></description>
+                </parameter>
+                <parameter name="streamingStrategy">
+                    <description><![CDATA[Configure if repeatable streams should be used and their behaviour]]></description>
+                </parameter>
+                <parameter name="target">
+                    <description><![CDATA[The name of a variable on which the operation's output will be placed]]></description>
+                </parameter>
+                <parameter name="targetValue">
+                    <description><![CDATA[An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable]]></description>
+                </parameter>
+                <parameter name="reconnectionStrategy">
+                    <description><![CDATA[A retry strategy in case of connectivity errors]]></description>
+                </parameter>
+            </parameters>
+        </operation>
+        <operation name="initiateFileUpload">
+            <description><![CDATA[Initiate the upload process for a file.]]></description>
+            <parameters>
+                <parameter name="config-ref">
+                    <description><![CDATA[The name of the configuration to be used to execute this component]]></description>
+                </parameter>
+                <parameter name="streamingStrategy">
+                    <description><![CDATA[Configure if repeatable streams should be used and their behaviour]]></description>
+                </parameter>
+                <parameter name="target">
+                    <description><![CDATA[The name of a variable on which the operation's output will be placed]]></description>
+                </parameter>
+                <parameter name="targetValue">
+                    <description><![CDATA[An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable]]></description>
+                </parameter>
+                <parameter name="reconnectionStrategy">
+                    <description><![CDATA[A retry strategy in case of connectivity errors]]></description>
+                </parameter>
+            </parameters>
+        </operation>
+        <operation name="publishDatasource">
+            <description><![CDATA[Publishes a data source on the site, or appends data to an existing data source. To make other changes to a published data source, call Update Data Source or Update Data Source Connection. This method is used in two ways. You can call it to publish a data source in a single request. To do that, you include the content of the data source file in the body of the request. The maximum size of a file that can be published in a single request is 64 MB. If you want to avoid having the publishing process time out, you can use the asJob parameter to make data source publication asynchronous. Alternatively, you can publish a data source in multiple parts. To do that, you initiate a file upload by calling Initiate File Upload, send portions of the file to the server using Append to File Upload, and then commit the upload by calling Publish Data Source. In this case, Publish Data Source doesn't contain the file to publish.]]></description>
+            <parameters>
+                <parameter name="overwriteFlag">
+                    <description><![CDATA[True to overwrite a data source that has the same name, or false to fail if the specified data source already exists.]]></description>
+                </parameter>
+                <parameter name="asJobValue">
+                    <description><![CDATA[A Boolean value that is used to publish data sources asynchronously.]]></description>
+                </parameter>
+                <parameter name="appendFlag">
+                    <description><![CDATA[True to append the data being published to an existing data source that has the same name. The default is false. If append-flag is set to true but the data source doesn't already exist, the operation fails.]]></description>
+                </parameter>
+                <parameter name="datasourceRequestOptions">
+                    <description><![CDATA[Datasource object.]]></description>
+                </parameter>
+                <parameter name="config-ref">
+                    <description><![CDATA[The name of the configuration to be used to execute this component]]></description>
+                </parameter>
+                <parameter name="streamingStrategy">
+                    <description><![CDATA[Configure if repeatable streams should be used and their behaviour]]></description>
+                </parameter>
+                <parameter name="target">
+                    <description><![CDATA[The name of a variable on which the operation's output will be placed]]></description>
+                </parameter>
+                <parameter name="targetValue">
+                    <description><![CDATA[An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable]]></description>
+                </parameter>
+                <parameter name="reconnectionStrategy">
+                    <description><![CDATA[A retry strategy in case of connectivity errors]]></description>
+                </parameter>
+            </parameters>
+        </operation>
+        <operation name="publishWorkbook">
+            <description><![CDATA[Publishes a workbook on the site. To make changes to a published workbook, call Update Workbook or Update Workbook Connection. This method is used in two ways. You can call it to publish a workbook in a single request. To do that, you include the content of the workbook file in the body of the request. The maximum size of a file that can be published in a single request is 64 MB. If you want to avoid having the publishing process time out, you can use the asJob parameter to make workbook publication asynchronous. Alternatively, you can publish a workbook in multiple parts. To do that, you initiate a file upload by calling Initiate File Upload, send portions of the file to the server using Append to File Upload, and then commit the upload by calling Publish Workbook. In this case, Publish Workbook doesn't contain the file to publish.]]></description>
+            <parameters>
+                <parameter name="overwriteFlag">
+                    <description><![CDATA[True to overwrite a data source that has the same name, or false to fail if the specified data source already exists.]]></description>
+                </parameter>
+                <parameter name="asJobValue">
+                    <description><![CDATA[A Boolean value that is used to publish data sources asynchronously.]]></description>
+                </parameter>
+                <parameter name="skipConnectionCheckFlag">
+                    <description><![CDATA[If true, then the Tableau server will not check if a non-published connection of a workbook is reachable. Publishing will succeed but unchecked connection issues may result in a non-functioning workbook.]]></description>
+                </parameter>
+                <parameter name="workbookRequestOptions">
+                    <description><![CDATA[Workbook object.]]></description>
+                </parameter>
+                <parameter name="config-ref">
+                    <description><![CDATA[The name of the configuration to be used to execute this component]]></description>
+                </parameter>
+                <parameter name="streamingStrategy">
+                    <description><![CDATA[Configure if repeatable streams should be used and their behaviour]]></description>
+                </parameter>
+                <parameter name="target">
+                    <description><![CDATA[The name of a variable on which the operation's output will be placed]]></description>
+                </parameter>
+                <parameter name="targetValue">
+                    <description><![CDATA[An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable]]></description>
+                </parameter>
+                <parameter name="reconnectionStrategy">
+                    <description><![CDATA[A retry strategy in case of connectivity errors]]></description>
+                </parameter>
+            </parameters>
+        </operation>
+        <operation name="queryProjects">
+            <description><![CDATA[Returns a list of projects on the specified site, with optional parameters for specifying the paging of large results.]]></description>
+            <parameters>
+                <parameter name="pageSize">
+                    <description><![CDATA[The number of items to return in one response. The minimum is 1. The maximum is 1000. The default is 100.]]></description>
+                </parameter>
+                <parameter name="filterExpressions">
+                    <description><![CDATA[An expression that lets you specify a subset of data sources to return.]]></description>
+                </parameter>
+                <parameter name="sortExpressions">
+                    <description><![CDATA[An expression that lets you specify the order in which user information is returned.]]></description>
+                </parameter>
+                <parameter name="config-ref">
+                    <description><![CDATA[The name of the configuration to be used to execute this component]]></description>
+                </parameter>
+                <parameter name="streamingStrategy">
+                    <description><![CDATA[Configure if repeatable streams should be used and their behaviour]]></description>
+                </parameter>
+                <parameter name="target">
+                    <description><![CDATA[The name of a variable on which the operation's output will be placed]]></description>
+                </parameter>
+                <parameter name="targetValue">
+                    <description><![CDATA[An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable]]></description>
+                </parameter>
+                <parameter name="reconnectionStrategy">
+                    <description><![CDATA[A retry strategy in case of connectivity errors]]></description>
+                </parameter>
+            </parameters>
+        </operation>
+        <operation name="querySite">
+            <description><![CDATA[Returns information about the site the user is logged in to.]]></description>
+            <parameters>
+                <parameter name="includeUsage">
+                    <description><![CDATA[To include usage in the response.]]></description>
+                </parameter>
+                <parameter name="config-ref">
+                    <description><![CDATA[The name of the configuration to be used to execute this component]]></description>
+                </parameter>
+                <parameter name="streamingStrategy">
+                    <description><![CDATA[Configure if repeatable streams should be used and their behaviour]]></description>
+                </parameter>
+                <parameter name="target">
+                    <description><![CDATA[The name of a variable on which the operation's output will be placed]]></description>
+                </parameter>
+                <parameter name="targetValue">
+                    <description><![CDATA[An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable]]></description>
+                </parameter>
+                <parameter name="reconnectionStrategy">
+                    <description><![CDATA[A retry strategy in case of connectivity errors]]></description>
+                </parameter>
+            </parameters>
+        </operation>
+        <operation name="querySites">
+            <description><![CDATA[Returns a list of the sites on the server that the caller of this method has access to.]]></description>
+            <parameters>
+                <parameter name="pageSize">
+                    <description><![CDATA[The number of items to return in one response. The minimum is 1. The maximum is 1000. The default is 100.]]></description>
+                </parameter>
+                <parameter name="config-ref">
+                    <description><![CDATA[The name of the configuration to be used to execute this component]]></description>
+                </parameter>
+                <parameter name="streamingStrategy">
+                    <description><![CDATA[Configure if repeatable streams should be used and their behaviour]]></description>
+                </parameter>
+                <parameter name="target">
+                    <description><![CDATA[The name of a variable on which the operation's output will be placed]]></description>
+                </parameter>
+                <parameter name="targetValue">
+                    <description><![CDATA[An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable]]></description>
+                </parameter>
+                <parameter name="reconnectionStrategy">
+                    <description><![CDATA[A retry strategy in case of connectivity errors]]></description>
+                </parameter>
+            </parameters>
+        </operation>
+        <operation name="updateProject">
+            <description><![CDATA[Updates a project on the specified site.]]></description>
+            <parameters>
+                <parameter name="projectId">
+                    <description><![CDATA[The ID of the project to be updated.]]></description>
+                </parameter>
+                <parameter name="publishValue">
+                    <description><![CDATA[A Boolean value that specifies whether to publish the sample workbooks provided by Tableau to the project.]]></description>
+                </parameter>
+                <parameter name="content">
+                    <description><![CDATA[An input stream containing specific attributes for this operation. Check metadata.]]></description>
+                </parameter>
+                <parameter name="config-ref">
+                    <description><![CDATA[The name of the configuration to be used to execute this component]]></description>
+                </parameter>
+                <parameter name="streamingStrategy">
+                    <description><![CDATA[Configure if repeatable streams should be used and their behaviour]]></description>
+                </parameter>
+                <parameter name="target">
+                    <description><![CDATA[The name of a variable on which the operation's output will be placed]]></description>
+                </parameter>
+                <parameter name="targetValue">
+                    <description><![CDATA[An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable]]></description>
+                </parameter>
+                <parameter name="reconnectionStrategy">
+                    <description><![CDATA[A retry strategy in case of connectivity errors]]></description>
+                </parameter>
+            </parameters>
+        </operation>
+        <operation name="updateSite">
+            <description><![CDATA[Modifies settings for the site the user is logged in to.]]></description>
+            <parameters>
+                <parameter name="content">
+                    <description><![CDATA[An input stream containing specific attributes for this operation.]]></description>
+                </parameter>
+                <parameter name="config-ref">
+                    <description><![CDATA[The name of the configuration to be used to execute this component]]></description>
+                </parameter>
+                <parameter name="streamingStrategy">
+                    <description><![CDATA[Configure if repeatable streams should be used and their behaviour]]></description>
+                </parameter>
+                <parameter name="target">
+                    <description><![CDATA[The name of a variable on which the operation's output will be placed]]></description>
+                </parameter>
+                <parameter name="targetValue">
+                    <description><![CDATA[An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable]]></description>
+                </parameter>
+                <parameter name="reconnectionStrategy">
+                    <description><![CDATA[A retry strategy in case of connectivity errors]]></description>
+                </parameter>
+            </parameters>
+        </operation>
+        <operation name="appendToFileUpload">
+            <description><![CDATA[Uploads a block of data and appends it to the data that is already uploaded.]]></description>
+            <parameters>
+                <parameter name="fileContent">
+                    <description><![CDATA[The content of the file to be uploaded is included in a MIME multipart message.]]></description>
+                </parameter>
+                <parameter name="uploadSessionId">
+                    <description><![CDATA[The ID of the upload session. You get this value when you start an upload session using Initiate File Upload.]]></description>
+                </parameter>
+                <parameter name="config-ref">
+                    <description><![CDATA[The name of the configuration to be used to execute this component]]></description>
+                </parameter>
+                <parameter name="streamingStrategy">
+                    <description><![CDATA[Configure if repeatable streams should be used and their behaviour]]></description>
+                </parameter>
+                <parameter name="target">
+                    <description><![CDATA[The name of a variable on which the operation's output will be placed]]></description>
+                </parameter>
+                <parameter name="targetValue">
+                    <description><![CDATA[An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable]]></description>
+                </parameter>
+                <parameter name="reconnectionStrategy">
+                    <description><![CDATA[A retry strategy in case of connectivity errors]]></description>
+                </parameter>
+            </parameters>
+        </operation>
+        <operation name="createProject">
+            <description><![CDATA[Creates a project on the site. You can also create project hierarchies by creating a project under the specified parent project on the site.]]></description>
+            <parameters>
+                <parameter name="publishValue">
+                    <description><![CDATA[A Boolean value that specifies whether to publish the sample workbooks provided by Tableau to the project.]]></description>
+                </parameter>
+                <parameter name="content">
+                    <description><![CDATA[An input stream containing specific attributes for this operation. Check metadata.]]></description>
+                </parameter>
+                <parameter name="config-ref">
+                    <description><![CDATA[The name of the configuration to be used to execute this component]]></description>
+                </parameter>
+                <parameter name="streamingStrategy">
+                    <description><![CDATA[Configure if repeatable streams should be used and their behaviour]]></description>
+                </parameter>
+                <parameter name="target">
+                    <description><![CDATA[The name of a variable on which the operation's output will be placed]]></description>
+                </parameter>
+                <parameter name="targetValue">
+                    <description><![CDATA[An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable]]></description>
+                </parameter>
+                <parameter name="reconnectionStrategy">
+                    <description><![CDATA[A retry strategy in case of connectivity errors]]></description>
+                </parameter>
+            </parameters>
+        </operation>
+        <operation name="deleteProject">
+            <description><![CDATA[Delete the specified project on the site. When a project is deleted, all of its assets are also deleted: associated workbooks, data sources, project view options, and rights. Use this method with caution.]]></description>
+            <parameters>
+                <parameter name="projectId">
+                    <description><![CDATA[The ID of the project to delete.]]></description>
+                </parameter>
+                <parameter name="config-ref">
+                    <description><![CDATA[The name of the configuration to be used to execute this component]]></description>
+                </parameter>
+                <parameter name="streamingStrategy">
+                    <description><![CDATA[Configure if repeatable streams should be used and their behaviour]]></description>
+                </parameter>
+                <parameter name="target">
+                    <description><![CDATA[The name of a variable on which the operation's output will be placed]]></description>
+                </parameter>
+                <parameter name="targetValue">
+                    <description><![CDATA[An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable]]></description>
+                </parameter>
+                <parameter name="reconnectionStrategy">
+                    <description><![CDATA[A retry strategy in case of connectivity errors]]></description>
+                </parameter>
+            </parameters>
+        </operation>
+        <operation name="initiateFileUpload">
+            <description><![CDATA[Initiate the upload process for a file.]]></description>
+            <parameters>
+                <parameter name="config-ref">
+                    <description><![CDATA[The name of the configuration to be used to execute this component]]></description>
+                </parameter>
+                <parameter name="streamingStrategy">
+                    <description><![CDATA[Configure if repeatable streams should be used and their behaviour]]></description>
+                </parameter>
+                <parameter name="target">
+                    <description><![CDATA[The name of a variable on which the operation's output will be placed]]></description>
+                </parameter>
+                <parameter name="targetValue">
+                    <description><![CDATA[An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable]]></description>
+                </parameter>
+                <parameter name="reconnectionStrategy">
+                    <description><![CDATA[A retry strategy in case of connectivity errors]]></description>
+                </parameter>
+            </parameters>
+        </operation>
+        <operation name="publishDatasource">
+            <description><![CDATA[Publishes a data source on the site, or appends data to an existing data source. To make other changes to a published data source, call Update Data Source or Update Data Source Connection. This method is used in two ways. You can call it to publish a data source in a single request. To do that, you include the content of the data source file in the body of the request. The maximum size of a file that can be published in a single request is 64 MB. If you want to avoid having the publishing process time out, you can use the asJob parameter to make data source publication asynchronous. Alternatively, you can publish a data source in multiple parts. To do that, you initiate a file upload by calling Initiate File Upload, send portions of the file to the server using Append to File Upload, and then commit the upload by calling Publish Data Source. In this case, Publish Data Source doesn't contain the file to publish.]]></description>
+            <parameters>
+                <parameter name="overwriteFlag">
+                    <description><![CDATA[True to overwrite a data source that has the same name, or false to fail if the specified data source already exists.]]></description>
+                </parameter>
+                <parameter name="asJobValue">
+                    <description><![CDATA[A Boolean value that is used to publish data sources asynchronously.]]></description>
+                </parameter>
+                <parameter name="appendFlag">
+                    <description><![CDATA[True to append the data being published to an existing data source that has the same name. The default is false. If append-flag is set to true but the data source doesn't already exist, the operation fails.]]></description>
+                </parameter>
+                <parameter name="datasourceRequestOptions">
+                    <description><![CDATA[Datasource object.]]></description>
+                </parameter>
+                <parameter name="config-ref">
+                    <description><![CDATA[The name of the configuration to be used to execute this component]]></description>
+                </parameter>
+                <parameter name="streamingStrategy">
+                    <description><![CDATA[Configure if repeatable streams should be used and their behaviour]]></description>
+                </parameter>
+                <parameter name="target">
+                    <description><![CDATA[The name of a variable on which the operation's output will be placed]]></description>
+                </parameter>
+                <parameter name="targetValue">
+                    <description><![CDATA[An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable]]></description>
+                </parameter>
+                <parameter name="reconnectionStrategy">
+                    <description><![CDATA[A retry strategy in case of connectivity errors]]></description>
+                </parameter>
+            </parameters>
+        </operation>
+        <operation name="publishWorkbook">
+            <description><![CDATA[Publishes a workbook on the site. To make changes to a published workbook, call Update Workbook or Update Workbook Connection. This method is used in two ways. You can call it to publish a workbook in a single request. To do that, you include the content of the workbook file in the body of the request. The maximum size of a file that can be published in a single request is 64 MB. If you want to avoid having the publishing process time out, you can use the asJob parameter to make workbook publication asynchronous. Alternatively, you can publish a workbook in multiple parts. To do that, you initiate a file upload by calling Initiate File Upload, send portions of the file to the server using Append to File Upload, and then commit the upload by calling Publish Workbook. In this case, Publish Workbook doesn't contain the file to publish.]]></description>
+            <parameters>
+                <parameter name="overwriteFlag">
+                    <description><![CDATA[True to overwrite a data source that has the same name, or false to fail if the specified data source already exists.]]></description>
+                </parameter>
+                <parameter name="asJobValue">
+                    <description><![CDATA[A Boolean value that is used to publish data sources asynchronously.]]></description>
+                </parameter>
+                <parameter name="skipConnectionCheckFlag">
+                    <description><![CDATA[If true, then the Tableau server will not check if a non-published connection of a workbook is reachable. Publishing will succeed but unchecked connection issues may result in a non-functioning workbook.]]></description>
+                </parameter>
+                <parameter name="workbookRequestOptions">
+                    <description><![CDATA[Workbook object.]]></description>
+                </parameter>
+                <parameter name="config-ref">
+                    <description><![CDATA[The name of the configuration to be used to execute this component]]></description>
+                </parameter>
+                <parameter name="streamingStrategy">
+                    <description><![CDATA[Configure if repeatable streams should be used and their behaviour]]></description>
+                </parameter>
+                <parameter name="target">
+                    <description><![CDATA[The name of a variable on which the operation's output will be placed]]></description>
+                </parameter>
+                <parameter name="targetValue">
+                    <description><![CDATA[An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable]]></description>
+                </parameter>
+                <parameter name="reconnectionStrategy">
+                    <description><![CDATA[A retry strategy in case of connectivity errors]]></description>
+                </parameter>
+            </parameters>
+        </operation>
+        <operation name="queryProjects">
+            <description><![CDATA[Returns a list of projects on the specified site, with optional parameters for specifying the paging of large results.]]></description>
+            <parameters>
+                <parameter name="pageSize">
+                    <description><![CDATA[The number of items to return in one response. The minimum is 1. The maximum is 1000. The default is 100.]]></description>
+                </parameter>
+                <parameter name="filterExpressions">
+                    <description><![CDATA[An expression that lets you specify a subset of data sources to return.]]></description>
+                </parameter>
+                <parameter name="sortExpressions">
+                    <description><![CDATA[An expression that lets you specify the order in which user information is returned.]]></description>
+                </parameter>
+                <parameter name="config-ref">
+                    <description><![CDATA[The name of the configuration to be used to execute this component]]></description>
+                </parameter>
+                <parameter name="streamingStrategy">
+                    <description><![CDATA[Configure if repeatable streams should be used and their behaviour]]></description>
+                </parameter>
+                <parameter name="target">
+                    <description><![CDATA[The name of a variable on which the operation's output will be placed]]></description>
+                </parameter>
+                <parameter name="targetValue">
+                    <description><![CDATA[An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable]]></description>
+                </parameter>
+                <parameter name="reconnectionStrategy">
+                    <description><![CDATA[A retry strategy in case of connectivity errors]]></description>
+                </parameter>
+            </parameters>
+        </operation>
+        <operation name="updateProject">
+            <description><![CDATA[Updates a project on the specified site.]]></description>
+            <parameters>
+                <parameter name="projectId">
+                    <description><![CDATA[The ID of the project to be updated.]]></description>
+                </parameter>
+                <parameter name="publishValue">
+                    <description><![CDATA[A Boolean value that specifies whether to publish the sample workbooks provided by Tableau to the project.]]></description>
+                </parameter>
+                <parameter name="content">
+                    <description><![CDATA[An input stream containing specific attributes for this operation. Check metadata.]]></description>
+                </parameter>
+                <parameter name="config-ref">
+                    <description><![CDATA[The name of the configuration to be used to execute this component]]></description>
+                </parameter>
+                <parameter name="streamingStrategy">
+                    <description><![CDATA[Configure if repeatable streams should be used and their behaviour]]></description>
+                </parameter>
+                <parameter name="target">
+                    <description><![CDATA[The name of a variable on which the operation's output will be placed]]></description>
+                </parameter>
+                <parameter name="targetValue">
+                    <description><![CDATA[An expression that will be evaluated against the operation's output and the outcome of that expression will be stored in the target variable]]></description>
+                </parameter>
+                <parameter name="reconnectionStrategy">
+                    <description><![CDATA[A retry strategy in case of connectivity errors]]></description>
+                </parameter>
+            </parameters>
+        </operation>
+    </operations>
+    <sources>
+        <source name="new-or-modified-datasource-listener">
+            <description><![CDATA[]]></description>
+            <parameters>
+                <parameter name="since">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="config-ref">
+                    <description><![CDATA[The name of the configuration to be used to execute this component]]></description>
+                </parameter>
+                <parameter name="primaryNodeOnly">
+                    <description><![CDATA[Whether this source should only be executed on the primary node when runnning in Cluster]]></description>
+                </parameter>
+                <parameter name="schedulingStrategy">
+                    <description><![CDATA[Configures the scheduler that triggers the polling]]></description>
+                </parameter>
+                <parameter name="redeliveryPolicy">
+                    <description><![CDATA[Defines a policy for processing the redelivery of the same message]]></description>
+                </parameter>
+                <parameter name="reconnectionStrategy">
+                    <description><![CDATA[A retry strategy in case of connectivity errors]]></description>
+                </parameter>
+            </parameters>
+        </source>
+        <source name="new-or-modified-datasource-listener">
+            <description><![CDATA[]]></description>
+            <parameters>
+                <parameter name="since">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="config-ref">
+                    <description><![CDATA[The name of the configuration to be used to execute this component]]></description>
+                </parameter>
+                <parameter name="primaryNodeOnly">
+                    <description><![CDATA[Whether this source should only be executed on the primary node when runnning in Cluster]]></description>
+                </parameter>
+                <parameter name="schedulingStrategy">
+                    <description><![CDATA[Configures the scheduler that triggers the polling]]></description>
+                </parameter>
+                <parameter name="redeliveryPolicy">
+                    <description><![CDATA[Defines a policy for processing the redelivery of the same message]]></description>
+                </parameter>
+                <parameter name="reconnectionStrategy">
+                    <description><![CDATA[A retry strategy in case of connectivity errors]]></description>
+                </parameter>
+            </parameters>
+        </source>
+    </sources>
+    <types>
+        <type name="com.mulesoft.connector.tableau.api.param.ColumnDefinition">
+            <description><![CDATA[]]></description>
+            <parameters>
+                <parameter name="columnName">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="columnType">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="columnNullability">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="columnCollation">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="numericScale">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="numericPrecision">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="length">
+                    <description><![CDATA[]]></description>
+                </parameter>
+            </parameters>
+        </type>
+        <type name="com.mulesoft.connector.tableau.api.param.FilterExpression">
+            <description><![CDATA[]]></description>
+            <parameters>
+                <parameter name="fieldName">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="operator">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="value">
+                    <description><![CDATA[]]></description>
+                </parameter>
+            </parameters>
+        </type>
+        <type name="com.mulesoft.connector.tableau.api.param.ProxyConfiguration">
+            <description><![CDATA[]]></description>
+            <parameters>
+                <parameter name="host">
+                    <description><![CDATA[Host where the proxy requests will be sent.]]></description>
+                </parameter>
+                <parameter name="port">
+                    <description><![CDATA[Port where the proxy requests will be sent.]]></description>
+                </parameter>
+                <parameter name="username">
+                    <description><![CDATA[The username to authenticate against the proxy.]]></description>
+                </parameter>
+                <parameter name="password">
+                    <description><![CDATA[The password to authenticate against the proxy.]]></description>
+                </parameter>
+            </parameters>
+        </type>
+        <type name="com.mulesoft.connector.tableau.api.param.PublishDatasourceRequestBody">
+            <description><![CDATA[]]></description>
+            <parameters>
+                <parameter name="datasourceFileContent">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="datasourceAttributes">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="datasourceFileName">
+                    <description><![CDATA[]]></description>
+                </parameter>
+            </parameters>
+        </type>
+        <type name="com.mulesoft.connector.tableau.api.param.PublishDatasourceRequestOption">
+            <description><![CDATA[]]></description>
+            <parameters/>
+        </type>
+        <type name="com.mulesoft.connector.tableau.api.param.PublishDatasourceRequestSessionId">
+            <description><![CDATA[]]></description>
+            <parameters>
+                <parameter name="uploadSessionId">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="datasourceAttributes">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="datasourceFileType">
+                    <description><![CDATA[]]></description>
+                </parameter>
+            </parameters>
+        </type>
+        <type name="com.mulesoft.connector.tableau.api.param.PublishWorkbookRequestBody">
+            <description><![CDATA[]]></description>
+            <parameters>
+                <parameter name="workbookFileContent">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="workbookAttributes">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="workbookFileName">
+                    <description><![CDATA[]]></description>
+                </parameter>
+            </parameters>
+        </type>
+        <type name="com.mulesoft.connector.tableau.api.param.PublishWorkbookRequestOption">
+            <description><![CDATA[]]></description>
+            <parameters/>
+        </type>
+        <type name="com.mulesoft.connector.tableau.api.param.PublishWorkbookRequestSessionId">
+            <description><![CDATA[]]></description>
+            <parameters>
+                <parameter name="uploadSessionId">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="workbookAttributes">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="workbookFileType">
+                    <description><![CDATA[]]></description>
+                </parameter>
+            </parameters>
+        </type>
+        <type name="com.mulesoft.connector.tableau.api.param.SortExpression">
+            <description><![CDATA[]]></description>
+            <parameters>
+                <parameter name="fieldName">
+                    <description><![CDATA[]]></description>
+                </parameter>
+                <parameter name="direction">
+                    <description><![CDATA[]]></description>
+                </parameter>
+            </parameters>
+        </type>
+    </types>
+</extension-documentation>
