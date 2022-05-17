@@ -8,6 +8,9 @@
 	<packaging>mule-application</packaging>
 
 	<name>hello-world</name>
+	
+	
+	
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -44,12 +47,6 @@
 			<groupId>org.mule.connectors</groupId>
 			<artifactId>mule-sockets-connector</artifactId>
 			<version>1.2.2</version>
-			<classifier>mule-plugin</classifier>
-		</dependency>
-		<dependency>
-			<groupId>com.mulesoft.connectors</groupId>
-			<artifactId>mule4-tableau-specialist-connector</artifactId>
-			<version>1.1.0</version>
 			<classifier>mule-plugin</classifier>
 		</dependency>
 	</dependencies>
